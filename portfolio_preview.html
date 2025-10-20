@@ -1,0 +1,1366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patrick Jane - Full Stack Developer</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #1a2332;
+            color: #e4e4e4;
+            line-height: 1.6;
+        }
+
+        /* Navigation */
+        nav {
+            background-color: #0f1824;
+            padding: 15px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        nav .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        nav .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #4a9eff;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+            align-items: center;
+        }
+
+        nav ul li a {
+            color: #e4e4e4;
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #4a9eff;
+        }
+
+        .theme-toggle {
+            background: none;
+            border: none;
+            color: #ffd700;
+            font-size: 18px;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            background-color: #1f2937;
+            padding: 150px 20px 100px;
+            text-align: center;
+            margin-top: 60px;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 10px;
+        }
+
+        .hero h1 .name {
+            color: #4a9eff;
+        }
+
+        .hero h2 {
+            font-size: 24px;
+            font-weight: 400;
+            margin-bottom: 30px;
+            color: #e4e4e4;
+        }
+
+        .hero p {
+            max-width: 700px;
+            margin: 0 auto 40px;
+            color: #b8b8b8;
+            font-size: 16px;
+            line-height: 1.8;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .btn {
+            padding: 12px 30px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s;
+        }
+
+        .btn-primary {
+            background-color: #4a9eff;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background-color: #3a8eef;
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: #4a9eff;
+            border: 2px solid #4a9eff;
+        }
+
+        .btn-secondary:hover {
+            background-color: rgba(74, 158, 255, 0.1);
+        }
+
+        /* About Section */
+        .about {
+            background-color: #1a2332;
+            padding: 80px 20px;
+        }
+
+        .about .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .about h2 {
+            font-size: 36px;
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .about-content {
+            display: flex;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .about-image {
+            flex-shrink: 0;
+        }
+
+        .avatar {
+            width: 250px;
+            height: 250px;
+            border-radius: 50%;
+            border: 8px solid #4a9eff;
+            background-color: #ffd700;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .avatar-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .about-text p {
+            color: #b8b8b8;
+            margin-bottom: 20px;
+            font-size: 16px;
+            line-height: 1.8;
+        }
+
+        .about-badges {
+            display: flex;
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        .badge {
+            padding: 10px 20px;
+            background-color: #374151;
+            border-radius: 25px;
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .badge::before {
+            content: '📍';
+        }
+
+        .badge.available::before {
+            content: '💼';
+        }
+
+        /* Education Section */
+        .education {
+            background-color: #1f2937;
+            padding: 80px 20px;
+        }
+
+        .education .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .education h2 {
+            font-size: 36px;
+            text-align: center;
+            margin-bottom: 15px;
+        }
+
+        .education-subtitle {
+            text-align: center;
+            color: #b8b8b8;
+            margin-bottom: 50px;
+        }
+
+        .education-item {
+            background-color: #4b5563;
+            padding: 40px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+        }
+
+        .education-header {
+            display: flex;
+            gap: 20px;
+            align-items: flex-start;
+            margin-bottom: 20px;
+        }
+
+        .education-icon {
+            font-size: 40px;
+            color: #4a9eff;
+            background-color: #374151;
+            padding: 15px;
+            border-radius: 50%;
+            width: 70px;
+            height: 70px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .education-info h3 {
+            font-size: 24px;
+            color: #4a9eff;
+            margin-bottom: 5px;
+        }
+
+        .education-info .university {
+            font-size: 18px;
+            color: #e4e4e4;
+            margin-bottom: 10px;
+        }
+
+        .education-info .university::before {
+            content: '🏛️ ';
+        }
+
+        .education-meta {
+            display: flex;
+            gap: 20px;
+            color: #b8b8b8;
+            font-size: 14px;
+            margin-bottom: 20px;
+        }
+
+        .education-meta span::before {
+            margin-right: 5px;
+        }
+
+        .location::before {
+            content: '📍';
+        }
+
+        .date::before {
+            content: '📅';
+        }
+
+        .education-description {
+            color: #e4e4e4;
+            margin-bottom: 25px;
+            line-height: 1.6;
+        }
+
+        .education-item h4 {
+            font-size: 18px;
+            margin-bottom: 15px;
+            color: #e4e4e4;
+        }
+
+        .education-item ul {
+            list-style: none;
+            margin-bottom: 25px;
+        }
+
+        .education-item ul li {
+            color: #b8b8b8;
+            margin-bottom: 8px;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .education-item ul li::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: #4a9eff;
+            font-size: 20px;
+        }
+
+        .coursework {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .course-tag {
+            background-color: #374151;
+            padding: 8px 16px;
+            border-radius: 5px;
+            font-size: 13px;
+            color: #9ca3af;
+        }
+
+        /* Professional Experience Section */
+        .experience {
+            background-color: #1a2332;
+            padding: 80px 20px;
+        }
+
+        .experience .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .experience h2 {
+            font-size: 36px;
+            text-align: center;
+            margin-bottom: 15px;
+        }
+
+        .experience-subtitle {
+            text-align: center;
+            color: #b8b8b8;
+            margin-bottom: 60px;
+        }
+
+        .timeline {
+            position: relative;
+            padding-left: 40px;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 15px;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: #4a9eff;
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 50px;
+        }
+
+        .timeline-marker {
+            position: absolute;
+            left: -33px;
+            top: 8px;
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            background: #4a9eff;
+            border: 4px solid #1a2332;
+            z-index: 1;
+        }
+
+        .timeline-content {
+            background-color: #2d3748;
+            padding: 30px;
+            border-radius: 10px;
+            margin-left: 20px;
+        }
+
+        .timeline-content h3 {
+            font-size: 24px;
+            color: #4a9eff;
+            margin-bottom: 8px;
+        }
+
+        .job-company {
+            font-size: 16px;
+            color: #e4e4e4;
+            margin-bottom: 12px;
+        }
+
+        .job-meta {
+            display: flex;
+            gap: 20px;
+            color: #b8b8b8;
+            font-size: 14px;
+            margin-bottom: 20px;
+        }
+
+        .job-responsibilities {
+            list-style: none;
+            margin-bottom: 25px;
+        }
+
+        .job-responsibilities li {
+            color: #b8b8b8;
+            margin-bottom: 12px;
+            padding-left: 20px;
+            position: relative;
+            line-height: 1.6;
+        }
+
+        .job-responsibilities li::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: #4a9eff;
+            font-size: 20px;
+        }
+
+        .job-skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .skill-tag {
+            background-color: #374151;
+            padding: 6px 14px;
+            border-radius: 5px;
+            font-size: 12px;
+            color: #9ca3af;
+        }
+
+        /* Projects Section */
+        .projects {
+            background-color: #0f1824;
+            padding: 80px 20px;
+        }
+
+        .projects .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .projects h2 {
+            font-size: 36px;
+            text-align: center;
+            margin-bottom: 15px;
+        }
+
+        .projects-subtitle {
+            text-align: center;
+            color: #b8b8b8;
+            margin-bottom: 50px;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+        }
+
+        .project-card {
+            background-color: #2d3748;
+            border-radius: 10px;
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(74, 158, 255, 0.2);
+        }
+
+        .project-image {
+            width: 100%;
+            height: 250px;
+            background-color: #d1d5db;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .placeholder {
+            font-size: 48px;
+            color: #9ca3af;
+            font-weight: 300;
+        }
+
+        .project-info {
+            padding: 25px;
+        }
+
+        .project-info h3 {
+            font-size: 22px;
+            color: #e4e4e4;
+            margin-bottom: 12px;
+        }
+
+        .project-info p {
+            color: #b8b8b8;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        .project-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 20px;
+        }
+
+        .tech-tag {
+            background-color: #374151;
+            padding: 5px 12px;
+            border-radius: 5px;
+            font-size: 12px;
+            color: #9ca3af;
+        }
+
+        .project-links {
+            display: flex;
+            gap: 15px;
+        }
+
+        .project-link {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            color: #4a9eff;
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.3s;
+        }
+
+        .project-link:hover {
+            color: #3a8eef;
+        }
+
+        /* Achievements Section */
+        .achievements {
+            background-color: #1a2332;
+            padding: 80px 20px;
+        }
+
+        .achievements .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .achievements h2 {
+            font-size: 36px;
+            text-align: center;
+            margin-bottom: 15px;
+        }
+
+        .achievements-subtitle {
+            text-align: center;
+            color: #b8b8b8;
+            margin-bottom: 50px;
+        }
+
+        .achievements-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 25px;
+        }
+
+        .achievement-card {
+            background-color: #2d3748;
+            padding: 25px;
+            border-radius: 10px;
+            border: 2px solid transparent;
+            transition: transform 0.3s;
+        }
+
+        .achievement-card:hover {
+            transform: translateY(-3px);
+        }
+
+        .achievement-card.green-border {
+            border-color: #10b981;
+        }
+
+        .achievement-card.blue-border {
+            border-color: #3b82f6;
+        }
+
+        .achievement-card.gold-border {
+            border-color: #f59e0b;
+        }
+
+        .achievement-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            margin-bottom: 15px;
+        }
+
+        .achievement-icon.green {
+            background-color: #10b981;
+            color: white;
+        }
+
+        .achievement-icon.blue {
+            background-color: #3b82f6;
+            color: white;
+        }
+
+        .achievement-icon.gold {
+            background-color: #f59e0b;
+            color: white;
+        }
+
+        .achievement-card h3 {
+            font-size: 18px;
+            color: #e4e4e4;
+            margin-bottom: 10px;
+        }
+
+        .achievement-org {
+            color: #b8b8b8;
+            font-size: 14px;
+            margin-bottom: 5px;
+        }
+
+        .achievement-date {
+            color: #9ca3af;
+            font-size: 13px;
+            margin-bottom: 15px;
+        }
+
+        .achievement-card p {
+            color: #b8b8b8;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        /* Contact Section */
+        .contact {
+            background-color: #1f2937;
+            padding: 80px 20px;
+        }
+
+        .contact .container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .contact h2 {
+            font-size: 36px;
+            text-align: center;
+            margin-bottom: 15px;
+        }
+
+        .contact-subtitle {
+            text-align: center;
+            color: #b8b8b8;
+            margin-bottom: 50px;
+        }
+
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1.5fr;
+            gap: 50px;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+
+        .contact-item {
+            display: flex;
+            gap: 15px;
+            align-items: flex-start;
+        }
+
+        .contact-icon {
+            font-size: 28px;
+            flex-shrink: 0;
+        }
+
+        .contact-item h4 {
+            font-size: 16px;
+            color: #e4e4e4;
+            margin-bottom: 5px;
+        }
+
+        .contact-item a,
+        .contact-item p {
+            color: #b8b8b8;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .contact-item a:hover {
+            color: #4a9eff;
+        }
+
+        .contact-social {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-link {
+            padding: 10px 20px;
+            background-color: #374151;
+            color: #e4e4e4;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .social-link:hover {
+            background-color: #4a9eff;
+        }
+
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px 15px;
+            background-color: #374151;
+            border: 1px solid #4b5563;
+            border-radius: 5px;
+            color: #e4e4e4;
+            font-size: 14px;
+            font-family: inherit;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #4a9eff;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #0f1824;
+            padding: 30px 20px;
+            text-align: center;
+        }
+
+        footer .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        footer p {
+            color: #9ca3af;
+            font-size: 14px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            nav ul {
+                gap: 15px;
+                font-size: 12px;
+            }
+
+            .hero h1 {
+                font-size: 32px;
+            }
+
+            .about-content {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .about-badges {
+                justify-content: center;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .education-item {
+                padding: 25px;
+            }
+
+            .timeline {
+                padding-left: 30px;
+            }
+
+            .timeline-content {
+                margin-left: 10px;
+                padding: 20px;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .achievements-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-content {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <div class="logo">Portfolio</div>
+            <ul>
+                <li><a href="#about">About</a></li>
+                <li><a href="#education">Education</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#achievements">Achievements</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><button class="theme-toggle">☀️</button></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>Hi, I'm <span class="name">Mihir Gujarati </span></h1>
+        <h2>Construction Management Professional</h2>
+        <p>
+            Passinate Construction professional with a strong focus on efficient project planning.
+            execution,and delevery. I am dedicated to creating Sustainable,safe and high-quality
+            built environment through effective colobration and attention to detail. I enjoy working
+            with modern construction technologies and continuosly learning new methods to enhance project
+            outcomes.I specialize in project scheduling,budgeting, and resource management, and embrace
+            data driven tools and industry best practices to ensure project are deliverd on time, within
+            scope,and to the higest standard.
+        </p>
+        <div class="hero-buttons">
+            <a href="#contact" class="btn btn-primary">Contact Me</a>
+            <a href="#resume" class="btn btn-secondary">View Resume</a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <h2>About Me</h2>
+            <div class="about-content">
+                <div class="about-image">
+                    <div class="avatar">
+                        <img src="profilephoto.jpg" height="300px" />
+                    </div>
+                </div>
+                <div class="about-text">
+                    <p>
+                        I'm a passionate web developer with expertise in building modern, 
+                        responsive, and accessible web applications. My journey in web 
+                        development started 5 years ago, and I've been continuously learning 
+                        and improving my skills since then. I'm committed to writing clean, 
+                        maintainable code, following best practices in accessibility, 
+                        performance, and UX design, and collaborating closely with cross-functional 
+                        teams to deliver exceptional digital experiences.
+                    </p>
+                    <p>
+                        I specialize in front-end development using React and TypeScript, with a 
+                        strong foundation in HTML, CSS, and JavaScript. I also have experience 
+                        with back-end technologies like Node.js and Express, and I've built full-stack 
+                        applications integrating RESTful APIs, GraphQL, and MongoDB. 
+                        Additionally, I've worked on implementing CI/CD pipelines, writing unit 
+                        and integration tests, and optimizing applications for SEO and 
+                        performance.
+                    </p>
+                    <div class="about-badges">
+                        <span class="badge">Phoenix, AZ</span>
+                        <span class="badge available">Available for freelance</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education" class="education">
+        <div class="container">
+            <h2>Education</h2>
+            <p class="education-subtitle">My academic background and continuous learning journey.</p>
+            
+            <!-- Master's Degree -->
+            <div class="education-item">
+                <div class="education-header">
+                    <div class="education-icon">🎓</div>
+                    <div class="education-info">
+                        <h3>Master of Science in Computer Science</h3>
+                        <div class="university">Arizona State University</div>
+                        <div class="education-meta">
+                            <span class="location">Tempe, AZ</span>
+                            <span class="date">August 2018 - May 2020</span>
+                        </div>
+                    </div>
+                </div>
+                <p class="education-description">
+                    Specialized in Web Technologies and Software Engineering with a focus on modern frontend frameworks and distributed systems.
+                </p>
+                <h4>Achievements</h4>
+                <ul>
+                    <li>GPA: 3.9/4.0</li>
+                    <li>Graduate Teaching Assistant for Web Development courses</li>
+                    <li>President of the Computer Science Graduate Student Association</li>
+                </ul>
+                <h4>Relevant Coursework</h4>
+                <div class="coursework">
+                    <span class="course-tag">Advanced Web Development</span>
+                    <span class="course-tag">Distributed Systems Architecture</span>
+                    <span class="course-tag">Cloud Computing</span>
+                    <span class="course-tag">User Experience Design</span>
+                    <span class="course-tag">Software Project Management</span>
+                    <span class="course-tag">Machine Learning Fundamentals</span>
+                </div>
+            </div>
+
+            <!-- Bachelor's Degree -->
+            <div class="education-item">
+                <div class="education-header">
+                    <div class="education-icon">🎓</div>
+                    <div class="education-info">
+                        <h3>Bachelor of Science in Computer Science</h3>
+                        <div class="university">University of Arizona</div>
+                        <div class="education-meta">
+                            <span class="location">Tucson, AZ</span>
+                            <span class="date">August 2014 - May 2018</span>
+                        </div>
+                    </div>
+                </div>
+                <p class="education-description">
+                    Foundational education in computer science with a minor in Mathematics.
+                </p>
+                <h4>Achievements</h4>
+                <ul>
+                    <li>GPA: 3.7/4.0</li>
+                    <li>Dean's List all semesters</li>
+                    <li>Undergraduate Research Assistant in Human-Computer Interaction Lab</li>
+                </ul>
+                <h4>Relevant Coursework</h4>
+                <div class="coursework">
+                    <span class="course-tag">Data Structures and Algorithms</span>
+                    <span class="course-tag">Database Management Systems</span>
+                    <span class="course-tag">Web Application Development</span>
+                    <span class="course-tag">Object-Oriented Programming</span>
+                    <span class="course-tag">Computer Networks</span>
+                    <span class="course-tag">Operating Systems</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Professional Experience Section -->
+    <section id="experience" class="experience">
+        <div class="container">
+            <h2>Professional Experience</h2>
+            <p class="experience-subtitle">My professional journey and the companies I've had the pleasure to work with.</p>
+            
+            <div class="timeline">
+                <!-- BIM Modeler -->
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <h3>BIM Modeler</h3>
+                        <div class="job-company">🏢 UniquesCadd</div>
+                        <div class="job-meta">
+                            <span class="location">📍 Ahmedabad, India</span>
+                            <span class="date">📅 August 2022 - July 2024</span>
+                        </div>
+                        <ul class="job-responsibilities">
+                            <li>Produced 500+ detailed BIM models in Revit for commercial, residential, and mixed-use projects, cutting design-to-construction kickoff time by 30%</li>
+                            <li>Led clash detection and scope validation processes, resolving 95% of conflicts before construction and saving significant rework costs</li>
+                            <li>Standardized modeling practices by creating and maintaining a 100+ family Revit library, reducing modeling turnaround by 25%</li>
+                            <li>Streamlined RFI workflows, improving response time across engineering and construction teams and minimizing schedule delays</li>
+                            <li>Generated QA/QC compliance documentation and milestone deliverables that ensured adherence to project specifications</li>
+                            <li>Mentored new hires and junior staff on BIM execution planning, boosting team efficiency and adoption of digital workflows</li>
+                            <li>Championed BIM integration on 5 pilot projects—3 advanced to full-scale implementation</li>
+                            <li>Collaborated with architects, engineers, and contractors to ensure model accuracy and alignment with design intent</li>
+                            <li>Developed workflow documentation and project templates that reduced onboarding time for new projects by 15%</li>
+                        </ul>
+                        <div class="job-skills">
+                            <span class="skill-tag">Autodesk Revit</span>
+                            <span class="skill-tag">Solibri Office</span>
+                            <span class="skill-tag">Navisworks</span>
+                            <span class="skill-tag">AutoCAD</span>
+                            <span class="skill-tag">Bluebeam</span>
+                            <span class="skill-tag">Procore</span>
+                            <span class="skill-tag">Microsoft Office Suite</span>
+                            <span class="skill-tag">QA/QC</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Trainee Site Engineer -->
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <h3>Trainee Site Engineer</h3>
+                        <div class="job-company">🏢 Sanidhya Developers</div>
+                        <div class="job-meta">
+                            <span class="location">📍 Gandhinagar, India</span>
+                            <span class="date">📅 May 2021 - June 2022</span>
+                        </div>
+                        <ul class="job-responsibilities">
+                            <li>Supervised daily site operations for a 14-story, 56-unit residential tower, with precision and efficiency</li>
+                            <li>Developed daily reports, look-ahead schedules, and billing documentation, improving project tracking and client reporting accuracy by 20%</li>
+                            <li>Implemented site-wide safety plans and compliance checks, achieving zero major incidents across 70+ laborers and subcontractors</li>
+                            <li>Facilitated collaboration between vendors, clients, and site teams, ensuring 98% of project activities were completed on or ahead of schedule</li>
+                            <li>Coordinated procurement and logistics of construction materials, site mobilization, and labour schedule management to ensure timely completion</li>
+                            <li>Assisted in preparing subcontractor bills and payment certificates, ensuring accuracy and timely disbursements</li>
+                            <li>Delivered common amenities like gym, pool, clubhouse within budget and schedule, improving stakeholder satisfaction</li>
+                            <li>Verified compliance of materials and workmanship with project specifications and quality standards</li>
+                            <li>Participated in client meetings and site walkthroughs, supporting effective stakeholder communication and issue resolution</li>
+                        </ul>
+                        <div class="job-skills">
+                            <span class="skill-tag">QA/QC</span>
+                            <span class="skill-tag">Field Testing Coordination</span>
+                            <span class="skill-tag">Concrete & Earthwork Inspection</span>
+                            <span class="skill-tag">RFI Management</span>
+                            <span class="skill-tag">Stakeholder Communication</span>
+                            <span class="skill-tag">Scope Development</span>
+                            <span class="skill-tag">Project Lifecycle Management</span>
+                            <span class="skill-tag">Risk Analysis</span>
+                            <span class="skill-tag">Estimating</span>
+                            <span class="skill-tag">Scheduling</span>
+                            <span class="skill-tag">Microsoft Office Suite</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects">
+        <div class="container">
+            <h2>My Projects</h2>
+            <p class="projects-subtitle">Here are some of my recent projects. Each one demonstrates different skills and technologies.</p>
+            
+            <div class="projects-grid">
+                <!-- E-commerce Platform -->
+                <div class="project-card">
+                    <div class="project-image">
+                        <div class="placeholder">600 × 400</div>
+                    </div>
+                    <div class="project-info">
+                        <h3>E-commerce Platform</h3>
+                        <p>A full-featured e-commerce platform with product catalog, shopping cart, user authentication, and payment processing.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">React</span>
+                            <span class="tech-tag">Node.js</span>
+                            <span class="tech-tag">Express</span>
+                            <span class="tech-tag">MongoDB</span>
+                            <span class="tech-tag">Stripe API</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="project-link">
+                                <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                                    <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/>
+                                </svg>
+                                Code
+                            </a>
+                            <a href="#" class="project-link">
+                                <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                                    <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/>
+                                </svg>
+                                Live Demo
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Task Management App -->
+                <div class="project-card">
+                    <div class="project-image">
+                        <div class="placeholder">600 × 400</div>
+                    </div>
+                    <div class="project-info">
+                        <h3>Task Management App</h3>
+                        <p>A productivity application for managing tasks, organizing projects, and tracking progress with a clean, intuitive interface.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">React</span>
+                            <span class="tech-tag">TypeScript</span>
+                            <span class="tech-tag">Tailwind CSS</span>
+                            <span class="tech-tag">Firebase</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="project-link">
+                                <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                                    <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/>
+                                </svg>
+                                Code
+                            </a>
+                            <a href="#" class="project-link">
+                                <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                                    <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/>
+                                </svg>
+                                Live Demo
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Weather Dashboard -->
+                <div class="project-card">
+                    <div class="project-image">
+                        <div class="placeholder">600 × 400</div>
+                    </div>
+                    <div class="project-info">
+                        <h3>Weather Dashboard</h3>
+                        <p>A weather application that displays current conditions and forecasts using data from a weather API with location-based searches.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">JavaScript</span>
+                            <span class="tech-tag">HTML/CSS</span>
+                            <span class="tech-tag">OpenWeather API</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="project-link">
+                                <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                                    <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/>
+                                </svg>
+                                Code
+                            </a>
+                            <a href="#" class="project-link">
+                                <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                                    <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/>
+                                </svg>
+                                Live Demo
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Achievements Section -->
+    <section id="achievements" class="achievements">
+        <div class="container">
+            <h2>Achievements & Recognition</h2>
+            <p class="achievements-subtitle">Milestones and acknowledgements received throughout my professional journey.</p>
+            
+            <div class="achievements-grid">
+                <!-- Achievement 1 -->
+                <div class="achievement-card green-border">
+                    <div class="achievement-icon green">✓</div>
+                    <h3>OSHA Outreach for the Construction Industry</h3>
+                    <div class="achievement-org">OSHA Education Center</div>
+                    <div class="achievement-date">Aug 2025</div>
+                    <p>Trained under OSHA Outreach Program for Construction, focusing on workplace safety standards and compliance.</p>
+                </div>
+
+                <!-- Achievement 2 -->
+                <div class="achievement-card green-border">
+                    <div class="achievement-icon green">✓</div>
+                    <h3>Procore Certified: Student</h3>
+                    <div class="achievement-org">Procore Technologies</div>
+                    <div class="achievement-date">June 2025</div>
+                    <p>Certified in Procore (Student) with skills in construction project management and digital collaboration tools.</p>
+                </div>
+
+                <!-- Achievement 3 -->
+                <div class="achievement-card green-border">
+                    <div class="achievement-icon green">✓</div>
+                    <h3>Microsoft Excel for Construction Management</h3>
+                    <div class="achievement-org">Udemy</div>
+                    <div class="achievement-date">Aug 2025</div>
+                    <p>Microsoft Excel for Construction Management — applied Excel tools for efficient project planning and resource management.</p>
+                </div>
+
+                <!-- Achievement 4 -->
+                <div class="achievement-card blue-border">
+                    <div class="achievement-icon blue">🎓</div>
+                    <h3>Generative AI Overview for Project Managers</h3>
+                    <div class="achievement-org">Project Management Institute</div>
+                    <div class="achievement-date">Sep 2024</div>
+                    <p>Certified in Generative AI Overview for Project Managers with focus on AI applications in productivity and decision-making.</p>
+                </div>
+
+                <!-- Achievement 5 -->
+                <div class="achievement-card green-border">
+                    <div class="achievement-icon green">✓</div>
+                    <h3>Revit Families- From Beginners to Pro</h3>
+                    <div class="achievement-org">Udemy</div>
+                    <div class="achievement-date">Dec 2023</div>
+                    <p>Revit Families: From Beginners to Pro — proficient in building intelligent, parametric content for advanced BIM workflows.</p>
+                </div>
+
+                <!-- Achievement 6 -->
+                <div class="achievement-card green-border">
+                    <div class="achievement-icon green">✓</div>
+                    <h3>Quantity Survey Estimation and Costing</h3>
+                    <div class="achievement-org">EmaxIndia</div>
+                    <div class="achievement-date">Sep 2021</div>
+                    <p>Certified in Quantity Survey Estimation and Costing — skilled in material takeoffs, cost analysis, and budget preparation.</p>
+                </div>
+
+                <!-- Achievement 7 -->
+                <div class="achievement-card green-border">
+                    <div class="achievement-icon green">✓</div>
+                    <h3>Autodesk AutoCAD User Certification</h3>
+                    <div class="achievement-org">CDAC GIST</div>
+                    <div class="achievement-date">Dec 2020</div>
+                    <p>Autodesk AutoCAD Certified User — proficient in 2D drafting, technical drawings, and design documentation.</p>
+                </div>
+
+                <!-- Achievement 8 -->
+                <div class="achievement-card green-border">
+                    <div class="achievement-icon green">✓</div>
+                    <h3>The Complete Revit Course</h3>
+                    <div class="achievement-org">Udemy</div>
+                    <div class="achievement-date">Sep 2020</div>
+                    <p>Trained in The Complete Revit Course with skills in 3D modeling, parametric design, and construction documentation</p>
+                </div>
+
+                <!-- Achievement 9 -->
+                <div class="achievement-card gold-border">
+                    <div class="achievement-icon gold">🏆</div>
+                    <h3>Community Mentor Award</h3>
+                    <div class="achievement-org">Local Coding Bootcamp</div>
+                    <div class="achievement-date">August 2021</div>
+                    <p>Recognized for exceptional mentorship provided to junior developers, helping them transition successfully into tech careers.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2>Get In Touch</h2>
+            <p class="contact-subtitle">Feel free to reach out for collaborations or just a friendly hello!</p>
+            
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <div class="contact-icon">📧</div>
+                        <div>
+                            <h4>Email</h4>
+                            <a href="mailto:patrick.jane@example.com">patrick.jane@example.com</a>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">📱</div>
+                        <div>
+                            <h4>Phone</h4>
+                            <a href="tel:+15551234567">+1 (555) 123-4567</a>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">📍</div>
+                        <div>
+                            <h4>Location</h4>
+                            <p>Phoenix, Arizona, US</p>
+                        </div>
+                    </div>
+                    <div class="contact-social">
+                        <a href="#" class="social-link">LinkedIn</a>
+                        <a href="#" class="social-link">GitHub</a>
+                        <a href="#" class="social-link">Twitter</a>
+                    </div>
+                </div>
+                
+                <form class="contact-form">
+                    <div class="form-group">
+                        <input type="text" placeholder="Your Name" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" placeholder="Your Email" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" placeholder="Subject">
+                    </div>
+                    <div class="form-group">
+                        <textarea placeholder="Your Message" rows="5" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Patrick Jane. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Form submission
+        document.querySelector('.contact-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for your message! I will get back to you soon.');
+            this.reset();
+        });
+    </script>
+</body>
+</html>
