@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Patrick Jane - Full Stack Developer</title>
+    <title>Mihir Gujarati-Construction Management Professional</title>
     <style>
         * {
             margin: 0;
@@ -72,11 +73,30 @@
 
         /* Hero Section */
         .hero {
-            background-color: #1f2937;
-            padding: 150px 20px 100px;
-            text-align: center;
-            margin-top: 60px;
-        }
+    background-color: #1f2937;
+    background-image: url('BackgroundImage.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: bottom center;
+    padding: 150px 20px 100px;
+    text-align: center;
+    margin-top: 60px;
+    position: relative;
+    z-index: 1;
+}
+
+/* Optional overlay for readability */
+.hero::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(180deg, rgba(26, 35, 50, 0.6), rgba(26, 35, 50, 0.9));
+    z-index: -1;
+}
+
 
         .hero h1 {
             font-size: 48px;
@@ -372,13 +392,16 @@
 
         .timeline {
             position: relative;
-            padding-left: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
         }
 
+        /* Center timeline line */
         .timeline::before {
             content: '';
             position: absolute;
-            left: 15px;
+            left: 50%;
+            transform: translateX(-50%);
             top: 0;
             bottom: 0;
             width: 3px;
@@ -388,11 +411,14 @@
         .timeline-item {
             position: relative;
             margin-bottom: 50px;
+            width: 100%;
         }
 
+        /* Timeline marker centered */
         .timeline-marker {
             position: absolute;
-            left: -33px;
+            left: 50%;
+            transform: translateX(-50%);
             top: 8px;
             width: 18px;
             height: 18px;
@@ -406,7 +432,17 @@
             background-color: #2d3748;
             padding: 30px;
             border-radius: 10px;
-            margin-left: 20px;
+            width: 45%;
+        }
+
+        /* Right side items */
+        .timeline-item-right .timeline-content {
+            margin-left: 55%;
+        }
+
+        /* Left side items */
+        .timeline-item-left .timeline-content {
+            margin-left: 0;
         }
 
         .timeline-content h3 {
@@ -418,53 +454,62 @@
         .job-company {
             font-size: 16px;
             color: #e4e4e4;
-            margin-bottom: 12px;
+            margin-bottom: 10px;
         }
 
         .job-meta {
             display: flex;
+            flex-wrap: wrap;
             gap: 20px;
+            margin-bottom: 20px;
             color: #b8b8b8;
             font-size: 14px;
-            margin-bottom: 20px;
         }
 
         .job-responsibilities {
-            list-style: none;
-            margin-bottom: 25px;
+            margin: 20px 0;
+            padding-left: 20px;
         }
 
         .job-responsibilities li {
+            margin-bottom: 10px;
             color: #b8b8b8;
-            margin-bottom: 12px;
-            padding-left: 20px;
-            position: relative;
-            line-height: 1.6;
-        }
-
-        .job-responsibilities li::before {
-            content: '•';
-            position: absolute;
-            left: 0;
-            color: #4a9eff;
-            font-size: 20px;
         }
 
         .job-skills {
             display: flex;
             flex-wrap: wrap;
             gap: 8px;
+            margin-top: 20px;
         }
 
         .skill-tag {
             background-color: #374151;
-            padding: 6px 14px;
+            padding: 5px 12px;
             border-radius: 5px;
             font-size: 12px;
             color: #9ca3af;
         }
 
-        /* Projects Section */
+        /* Responsive timeline */
+        @media (max-width: 768px) {
+            .timeline::before {
+                left: 20px;
+            }
+
+            .timeline-marker {
+                left: 20px;
+                transform: translateX(-50%);
+            }
+
+            .timeline-item-right .timeline-content,
+            .timeline-item-left .timeline-content {
+                width: calc(100% - 60px);
+                margin-left: 60px;
+            }
+        }
+
+        /* Projects Section - Carousel */
         .projects {
             background-color: #0f1824;
             padding: 80px 20px;
@@ -487,17 +532,89 @@
             margin-bottom: 50px;
         }
 
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+        /* Carousel Container */
+        .carousel-container {
+            position: relative;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .carousel-wrapper {
+            overflow: hidden;
+            flex: 1;
+        }
+
+        .carousel-track {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
             gap: 30px;
         }
 
+        /* Carousel Buttons */
+        .carousel-btn {
+            background-color: #2d3748;
+            border: none;
+            color: #4a9eff;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s;
+            flex-shrink: 0;
+            z-index: 2;
+        }
+
+        .carousel-btn:hover {
+            background-color: #4a9eff;
+            color: #fff;
+            transform: scale(1.1);
+        }
+
+        .carousel-btn:disabled {
+            opacity: 0.3;
+            cursor: not-allowed;
+        }
+
+        .carousel-btn:disabled:hover {
+            background-color: #2d3748;
+            color: #4a9eff;
+            transform: scale(1);
+        }
+
+        /* Carousel Dots */
+        .carousel-dots {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 30px;
+        }
+
+        .carousel-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: #2d3748;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .carousel-dot.active {
+            background-color: #4a9eff;
+        }
+
+        /* Project Cards */
         .project-card {
             background-color: #2d3748;
             border-radius: 10px;
             overflow: hidden;
             transition: transform 0.3s, box-shadow 0.3s;
+            flex: 0 0 calc(33.333% - 20px);
+            min-width: 350px;
         }
 
         .project-card:hover {
@@ -569,6 +686,40 @@
         .project-link:hover {
             color: #3a8eef;
         }
+
+        /* Responsive Carousel */
+        @media (max-width: 1200px) {
+            .project-card {
+                flex: 0 0 calc(50% - 15px);
+                min-width: 300px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .carousel-container {
+                gap: 10px;
+            }
+
+            .carousel-btn {
+                width: 40px;
+                height: 40px;
+            }
+
+            .carousel-btn svg {
+                width: 20px;
+                height: 20px;
+            }
+
+            .project-card {
+                flex: 0 0 100%;
+                min-width: 280px;
+            }
+
+            .carousel-track {
+                gap: 15px;
+            }
+        }
+
 
         /* Achievements Section */
         .achievements {
@@ -854,6 +1005,7 @@
         }
     </style>
 </head>
+
 <body>
     <!-- Navigation -->
     <nav>
@@ -862,11 +1014,11 @@
             <ul>
                 <li><a href="#about">About</a></li>
                 <li><a href="#education">Education</a></li>
-                <li><a href="#skills">Skills</a></li>
                 <li><a href="#experience">Experience</a></li>
                 <li><a href="#projects">AI in Construction</a></li>
                 <li><a href="#achievements">Achievements</a></li>
                 <li><a href="#contact">Contact</a></li>
+                <li><a href="#game">Game</a></li>
                 <li><button class="theme-toggle">☀️</button></li>
             </ul>
         </div>
@@ -877,17 +1029,13 @@
         <h1>Hi, I'm <span class="name">Mihir Gujarati </span></h1>
         <h2>Construction Management Professional</h2>
         <p>
-            Passinate Construction professional with a strong focus on efficient project planning.
-            execution,and delevery. I am dedicated to creating Sustainable,safe and high-quality
-            built environment through effective colobration and attention to detail. I enjoy working
-            with modern construction technologies and continuosly learning new methods to enhance project
-            outcomes.I specialize in project scheduling,budgeting, and resource management, and embrace
-            data driven tools and industry best practices to ensure project are deliverd on time, within
-            scope,and to the higest standard.
+            Actively seeking Spring 2026 internship and full-time opportunities in construction management and technology.
+            Motivated to contribute to forward-thinking projects that leverage innovation and efficiency in the built environment.
+            Committed to applying advanced technical and managerial skills to drive sustainable and impactful construction solutions.
         </p>
         <div class="hero-buttons">
             <a href="#contact" class="btn btn-primary">Contact Me</a>
-            <a href="#resume" class="btn btn-secondary">View Resume</a>
+            <a href="https://drive.google.com/drive/folders/12rGSkb0l_23AnGswgYZJDSvF3KYRqMN7?usp=sharing" target="_blank" class="btn btn-secondary">View Resume</a>
         </div>
     </section>
 
@@ -903,26 +1051,17 @@
                 </div>
                 <div class="about-text">
                     <p>
-                        I'm a passionate web developer with expertise in building modern, 
-                        responsive, and accessible web applications. My journey in web 
-                        development started 5 years ago, and I've been continuously learning 
-                        and improving my skills since then. I'm committed to writing clean, 
-                        maintainable code, following best practices in accessibility, 
-                        performance, and UX design, and collaborating closely with cross-functional 
-                        teams to deliver exceptional digital experiences.
-                    </p>
-                    <p>
-                        I specialize in front-end development using React and TypeScript, with a 
-                        strong foundation in HTML, CSS, and JavaScript. I also have experience 
-                        with back-end technologies like Node.js and Express, and I've built full-stack 
-                        applications integrating RESTful APIs, GraphQL, and MongoDB. 
-                        Additionally, I've worked on implementing CI/CD pipelines, writing unit 
-                        and integration tests, and optimizing applications for SEO and 
-                        performance.
+                    Passinate Construction professional with a strong focus on efficient project planning.
+                    execution,and delevery. I am dedicated to creating Sustainable,safe and high-quality
+                    built environment through effective colobration and attention to detail. I enjoy working
+                    with modern construction technologies and continuosly learning new methods to enhance project
+                    outcomes.I specialize in project scheduling,budgeting, and resource management, and embrace
+                    data driven tools and industry best practices to ensure project are deliverd on time, within
+                    scope,and to the higest standard.
                     </p>
                     <div class="about-badges">
-                        <span class="badge">Phoenix, AZ</span>
-                        <span class="badge available">Available for freelance</span>
+                        <span class="badge">Tempe, AZ</span>
+                        <span class="badge available">Open To Work</span>
                     </div>
                 </div>
             </div>
@@ -934,37 +1073,42 @@
         <div class="container">
             <h2>Education</h2>
             <p class="education-subtitle">My academic background and continuous learning journey.</p>
-            
+
             <!-- Master's Degree -->
             <div class="education-item">
                 <div class="education-header">
                     <div class="education-icon">🎓</div>
                     <div class="education-info">
-                        <h3>Master of Science in Computer Science</h3>
+                        <h3>Master of Science in Construction Management and Technology</h3>
                         <div class="university">Arizona State University</div>
                         <div class="education-meta">
                             <span class="location">Tempe, AZ</span>
-                            <span class="date">August 2018 - May 2020</span>
+                            <span class="date">Aug 2024 - May 2026</span>
                         </div>
                     </div>
                 </div>
                 <p class="education-description">
-                    Specialized in Web Technologies and Software Engineering with a focus on modern frontend frameworks and distributed systems.
+                    Specialized in Construction Management and Technology with a focus on emerging tools such as
+                    Artificial Intelligence, drone applications, and information technology for the built environment.
+                    My coursework at Arizona State University emphasizes advanced project delivery methods, heavy
+                    construction management, estimating, and scheduling equipping me to integrate innovation and
+                    efficiency into complex construction projects.
                 </p>
-                <h4>Achievements</h4>
+                <h4>Grades</h4>
                 <ul>
-                    <li>GPA: 3.9/4.0</li>
-                    <li>Graduate Teaching Assistant for Web Development courses</li>
-                    <li>President of the Computer Science Graduate Student Association</li>
+                    <li>GPA: 4.0/4.0</li>
+
                 </ul>
-                <h4>Relevant Coursework</h4>
+                <h4>Relevant Skills</h4>
                 <div class="coursework">
-                    <span class="course-tag">Advanced Web Development</span>
-                    <span class="course-tag">Distributed Systems Architecture</span>
-                    <span class="course-tag">Cloud Computing</span>
-                    <span class="course-tag">User Experience Design</span>
-                    <span class="course-tag">Software Project Management</span>
-                    <span class="course-tag">Machine Learning Fundamentals</span>
+                    <span class="course-tag">Project Scheduling & Timeline Management</span>
+                    <span class="course-tag">Construction Estimating</span>
+                    <span class="course-tag">Construction Site Management</span>
+                    <span class="course-tag">Site Logistics Planning</span>
+                    <span class="course-tag">Building Information Modeling (BIM)</span>
+                    <span class="course-tag">Vendor & Subcontractor Coordination</span>
+                    <span class="course-tag">Bluebeam</span>
+                    <span class="course-tag">Drone Mapping</span>
                 </div>
             </div>
 
@@ -973,31 +1117,30 @@
                 <div class="education-header">
                     <div class="education-icon">🎓</div>
                     <div class="education-info">
-                        <h3>Bachelor of Science in Computer Science</h3>
-                        <div class="university">University of Arizona</div>
+                        <h3>Bachelor of Science in Civil Engineering</h3>
+                        <div class="university">Silver Oak College Of Engineering and Technology</div>
                         <div class="education-meta">
-                            <span class="location">Tucson, AZ</span>
-                            <span class="date">August 2014 - May 2018</span>
+                            <span class="location">Ahmedabad, India</span>
+                            <span class="date">August 2016 - Sep 2020</span>
                         </div>
                     </div>
                 </div>
                 <p class="education-description">
-                    Foundational education in computer science with a minor in Mathematics.
+                    Specialized in Civil Engineering with a focus on structural design, infrastructure development, and sustainable construction practices. My undergraduate coursework at SOCET emphasized core civil engineering principles, materials science, geotechnical analysis, and transportation engineering, equipping me with a strong foundation to design and manage resilient and efficient infrastructure projects.
                 </p>
-                <h4>Achievements</h4>
+                <h4>Grades</h4>
                 <ul>
-                    <li>GPA: 3.7/4.0</li>
-                    <li>Dean's List all semesters</li>
-                    <li>Undergraduate Research Assistant in Human-Computer Interaction Lab</li>
+                    <li>CGPA: 7.68/10</li>
                 </ul>
-                <h4>Relevant Coursework</h4>
+                <h4>Relevant Skills</h4>
                 <div class="coursework">
-                    <span class="course-tag">Data Structures and Algorithms</span>
-                    <span class="course-tag">Database Management Systems</span>
-                    <span class="course-tag">Web Application Development</span>
-                    <span class="course-tag">Object-Oriented Programming</span>
-                    <span class="course-tag">Computer Networks</span>
-                    <span class="course-tag">Operating Systems</span>
+                    <span class="course-tag">Structural Analysis & Design</span>
+                    <span class="course-tag">Construction Materials Testing</span>
+                    <span class="course-tag">Geotechnical Engineering</span>
+                    <span class="course-tag">Transportation & Highway Engineering</span>
+                    <span class="course-tag">Project Planning & Site Supervision</span>
+                    <span class="course-tag">Environmental & Sustainability Assessment</span>
+                    <span class="course-tag">Surveying & Site Layout</span>
                 </div>
             </div>
         </div>
@@ -1007,29 +1150,39 @@
     <section id="experience" class="experience">
         <div class="container">
             <h2>Professional Experience</h2>
-            <p class="experience-subtitle">My professional journey and the companies I've had the pleasure to work with.</p>
-            
+            <p class="experience-subtitle">My professional journey and the companies I've had the pleasure to work with.
+            </p>
+
             <div class="timeline">
-                <!-- BIM Modeler -->
-                <div class="timeline-item">
+                <!-- BIM Modeler - Right Side -->
+                <div class="timeline-item timeline-item-right">
                     <div class="timeline-marker"></div>
                     <div class="timeline-content">
                         <h3>BIM Modeler</h3>
                         <div class="job-company">🏢 UniquesCadd</div>
                         <div class="job-meta">
-                            <span class="location">📍 Ahmedabad, India</span>
-                            <span class="date">📅 August 2022 - July 2024</span>
+                            <span class="location">Ahmedabad, India</span>
+                            <span class="date">August 2022 - July 2024</span>
                         </div>
                         <ul class="job-responsibilities">
-                            <li>Produced 500+ detailed BIM models in Revit for commercial, residential, and mixed-use projects, cutting design-to-construction kickoff time by 30%</li>
-                            <li>Led clash detection and scope validation processes, resolving 95% of conflicts before construction and saving significant rework costs</li>
-                            <li>Standardized modeling practices by creating and maintaining a 100+ family Revit library, reducing modeling turnaround by 25%</li>
-                            <li>Streamlined RFI workflows, improving response time across engineering and construction teams and minimizing schedule delays</li>
-                            <li>Generated QA/QC compliance documentation and milestone deliverables that ensured adherence to project specifications</li>
-                            <li>Mentored new hires and junior staff on BIM execution planning, boosting team efficiency and adoption of digital workflows</li>
-                            <li>Championed BIM integration on 5 pilot projects—3 advanced to full-scale implementation</li>
-                            <li>Collaborated with architects, engineers, and contractors to ensure model accuracy and alignment with design intent</li>
-                            <li>Developed workflow documentation and project templates that reduced onboarding time for new projects by 15%</li>
+                            <li>Produced 500+ detailed BIM models in Revit for commercial, residential, and mixed-use
+                                projects, cutting design-to-construction kickoff time by 30%</li>
+                            <li>Led clash detection and scope validation processes, resolving 95% of conflicts before
+                                construction and saving significant rework costs</li>
+                            <li>Standardized modeling practices by creating and maintaining a 100+ family Revit library,
+                                reducing modeling turnaround by 25%</li>
+                            <li>Streamlined RFI workflows, improving response time across engineering and construction
+                                teams and minimizing schedule delays</li>
+                            <li>Generated QA/QC compliance documentation and milestone deliverables that ensured
+                                adherence to project specifications</li>
+                            <li>Mentored new hires and junior staff on BIM execution planning, boosting team efficiency
+                                and adoption of digital workflows</li>
+                            <li>Championed BIM integration on 5 pilot projects—3 advanced to full-scale implementation
+                            </li>
+                            <li>Collaborated with architects, engineers, and contractors to ensure model accuracy and
+                                alignment with design intent</li>
+                            <li>Developed workflow documentation and project templates that reduced onboarding time for
+                                new projects by 15%</li>
                         </ul>
                         <div class="job-skills">
                             <span class="skill-tag">Autodesk Revit</span>
@@ -1044,26 +1197,35 @@
                     </div>
                 </div>
 
-                <!-- Trainee Site Engineer -->
-                <div class="timeline-item">
+                <!-- Trainee Site Engineer - Left Side -->
+                <div class="timeline-item timeline-item-left">
                     <div class="timeline-marker"></div>
                     <div class="timeline-content">
                         <h3>Trainee Site Engineer</h3>
                         <div class="job-company">🏢 Sanidhya Developers</div>
                         <div class="job-meta">
-                            <span class="location">📍 Gandhinagar, India</span>
-                            <span class="date">📅 May 2021 - June 2022</span>
+                            <span class="location">Gandhinagar, India</span>
+                            <span class="date">May 2021 - June 2022</span>
                         </div>
                         <ul class="job-responsibilities">
-                            <li>Supervised daily site operations for a 14-story, 56-unit residential tower, with precision and efficiency</li>
-                            <li>Developed daily reports, look-ahead schedules, and billing documentation, improving project tracking and client reporting accuracy by 20%</li>
-                            <li>Implemented site-wide safety plans and compliance checks, achieving zero major incidents across 70+ laborers and subcontractors</li>
-                            <li>Facilitated collaboration between vendors, clients, and site teams, ensuring 98% of project activities were completed on or ahead of schedule</li>
-                            <li>Coordinated procurement and logistics of construction materials, site mobilization, and labour schedule management to ensure timely completion</li>
-                            <li>Assisted in preparing subcontractor bills and payment certificates, ensuring accuracy and timely disbursements</li>
-                            <li>Delivered common amenities like gym, pool, clubhouse within budget and schedule, improving stakeholder satisfaction</li>
-                            <li>Verified compliance of materials and workmanship with project specifications and quality standards</li>
-                            <li>Participated in client meetings and site walkthroughs, supporting effective stakeholder communication and issue resolution</li>
+                            <li>Supervised daily site operations for a 14-story, 56-unit residential tower, with
+                                precision and efficiency</li>
+                            <li>Developed daily reports, look-ahead schedules, and billing documentation, improving
+                                project tracking and client reporting accuracy by 20%</li>
+                            <li>Implemented site-wide safety plans and compliance checks, achieving zero major incidents
+                                across 70+ laborers and subcontractors</li>
+                            <li>Facilitated collaboration between vendors, clients, and site teams, ensuring 98% of
+                                project activities were completed on or ahead of schedule</li>
+                            <li>Coordinated procurement and logistics of construction materials, site mobilization, and
+                                labour schedule management to ensure timely completion</li>
+                            <li>Assisted in preparing subcontractor bills and payment certificates, ensuring accuracy
+                                and timely disbursements</li>
+                            <li>Delivered common amenities like gym, pool, clubhouse within budget and schedule,
+                                improving stakeholder satisfaction</li>
+                            <li>Verified compliance of materials and workmanship with project specifications and quality
+                                standards</li>
+                            <li>Participated in client meetings and site walkthroughs, supporting effective stakeholder
+                                communication and issue resolution</li>
                         </ul>
                         <div class="job-skills">
                             <span class="skill-tag">QA/QC</span>
@@ -1088,102 +1250,310 @@
     <section id="projects" class="projects">
         <div class="container">
             <h2>Weekly Submissions</h2>
-            <p class="projects-subtitle">Here are some of my recent projects. Each one demonstrates different skills and technologies.</p>
-            
-            <div class="projects-grid">
-                <!-- E-commerce Platform -->
-                <div class="project-card">
-                    <div class="project-image">
-                        <div class="placeholder">600 × 400</div>
-                    </div>
-                    <div class="project-info">
-                        <h3>E-commerce Platform</h3>
-                        <p>A full-featured e-commerce platform with product catalog, shopping cart, user authentication, and payment processing.</p>
-                        <div class="project-tech">
-                            <span class="tech-tag">React</span>
-                            <span class="tech-tag">Node.js</span>
-                            <span class="tech-tag">Express</span>
-                            <span class="tech-tag">MongoDB</span>
-                            <span class="tech-tag">Stripe API</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="#" class="project-link">
-                                <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
-                                    <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/>
-                                </svg>
-                                Code
-                            </a>
-                            <a href="#" class="project-link">
-                                <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
-                                    <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/>
-                                </svg>
-                                Live Demo
-                            </a>
-                        </div>
-                    </div>
-                </div>
+            <p class="projects-subtitle">Here you can review all my submitted articles.</p>
 
-                <!-- Task Management App -->
-                <div class="project-card">
-                    <div class="project-image">
-                        <div class="placeholder">600 × 400</div>
-                    </div>
-                    <div class="project-info">
-                        <h3>Task Management App</h3>
-                        <p>A productivity application for managing tasks, organizing projects, and tracking progress with a clean, intuitive interface.</p>
-                        <div class="project-tech">
-                            <span class="tech-tag">React</span>
-                            <span class="tech-tag">TypeScript</span>
-                            <span class="tech-tag">Tailwind CSS</span>
-                            <span class="tech-tag">Firebase</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="#" class="project-link">
-                                <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
-                                    <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/>
-                                </svg>
-                                Code
-                            </a>
-                            <a href="#" class="project-link">
-                                <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
-                                    <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/>
-                                </svg>
-                                Live Demo
-                            </a>
-                        </div>
-                    </div>
-                </div>
+            <div class="carousel-container">
+                <button class="carousel-btn carousel-btn-prev" aria-label="Previous projects">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="15 18 9 12 15 6"></polyline>
+                    </svg>
+                </button>
 
-                <!-- Weather Dashboard -->
-                <div class="project-card">
-                    <div class="project-image">
-                        <div class="placeholder">600 × 400</div>
-                    </div>
-                    <div class="project-info">
-                        <h3>Weather Dashboard</h3>
-                        <p>A weather application that displays current conditions and forecasts using data from a weather API with location-based searches.</p>
-                        <div class="project-tech">
-                            <span class="tech-tag">JavaScript</span>
-                            <span class="tech-tag">HTML/CSS</span>
-                            <span class="tech-tag">OpenWeather API</span>
+                <div class="carousel-wrapper">
+                    <div class="carousel-track">
+                        <!-- Putting patients first with medical AI -->
+                        <div class="project-card">
+                            <div class="project-image">
+                                <div class="placeholder"><img src="Week 2.png" height="400px" width="600px"></div>
+                            </div>
+                            <div class="project-info">
+                                <h3> Putting patients first with medical AI</h3>
+                                <p>Explores how medical AI can prioritize patient care and enhance healthcare outcomes.</p>
+                                <div class="project-tech">
+                                    <span class="tech-tag">Chat GPT</span>
+                                    <span class="tech-tag">NotebookLM</span>
+                                    <span class="tech-tag">Gamma</span>
+                                    <span class="tech-tag">Powerpoint Presentation</span>
+                                </div>
+                                <div class="project-links">
+                                    <a href="https://drive.google.com/drive/folders/1A4wrRRJqrx1FmRqFMS6AjAZmQ34RWzlW?usp=sharing" class="project-link">
+                                        <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                                           <path fill-rule="evenodd" clip-rule="evenodd" d="m2 2 1-1h9l1 1v12l-1 1H3l-1-1zm1 0v12h9V2zm1 2 1-1h5l1 1v1l-1 1H5L4 5zm1 0v1h5V4zm10 1h-1v2h1zm-1 3h1v2h-1zm1 3h-1v2h1z"/></svg>
+                                        NotebookLM
+                                    </a>
+                                    <a href="https://drive.google.com/drive/folders/1A4wrRRJqrx1FmRqFMS6AjAZmQ34RWzlW?usp=sharing" class="project-link">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"  viewBox="0 0 48 48" fill="currentColor" xml:space="preserve"><path d="M47.987 21.938a1 1 0 0 0-.053-.264c-.011-.032-.019-.063-.033-.094a1 1 0 0 0-.193-.285l-.001-.001L42 15.586V10c0-.022-.011-.041-.013-.063a1 1 0 0 0-.051-.257c-.011-.032-.019-.063-.034-.094a1 1 0 0 0-.196-.293l-9-9a1 1 0 0 0-.294-.197q-.044-.018-.09-.032a1 1 0 0 0-.265-.053C32.038.01 32.02 0 32 0H7a1 1 0 0 0-1 1v14.586L.293 21.293l-.002.002a1 1 0 0 0-.192.285c-.014.031-.022.062-.033.094a1 1 0 0 0-.053.264C.011 21.96 0 21.978 0 22v19a1 1 0 0 0 1 1h5v5a1 1 0 0 0 1 1h34a1 1 0 0 0 1-1v-5h5a1 1 0 0 0 1-1V22c0-.022-.011-.04-.013-.062M44.586 21H42v-2.586zm-6-12H33V3.414zM8 2h23v8a1 1 0 0 0 1 1h8v10H8zM6 18.414V21H3.414zM40 46H8v-4h32zm6-6H2V23h44z"/><path d="M29.1 27.698h2.261V38h2.006V27.698h2.261v-1.734H29.1zm-1.437-.978a2.8 2.8 0 0 0-1.097-.586 4.5 4.5 0 0 0-1.19-.17h-3.332V38h2.006v-4.828h1.428q.629 0 1.224-.221a2.9 2.9 0 0 0 1.054-.68q.459-.459.74-1.148t.281-1.606q0-1.02-.315-1.7c-.315-.68-.476-.819-.799-1.097m-1.283 4.285q-.459.501-1.173.501h-1.156v-3.825h1.156q.714 0 1.173.442t.459 1.411-.459 1.471m-7.131-4.285a2.8 2.8 0 0 0-1.097-.586 4.5 4.5 0 0 0-1.19-.17H13.63V38h2.006v-4.828h1.428q.628 0 1.224-.221a2.9 2.9 0 0 0 1.054-.68q.459-.459.74-1.148t.281-1.606q0-1.02-.315-1.7a3.2 3.2 0 0 0-.799-1.097m-1.284 4.285q-.459.501-1.173.501h-1.156v-3.825h1.156q.714 0 1.173.442t.459 1.411-.459 1.471"/></svg> 
+                                  Presentation
+                                    </a>
+                                </div>
+                            </div>
                         </div>
-                        <div class="project-links">
-                            <a href="#" class="project-link">
-                                <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
-                                    <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/>
-                                </svg>
-                                Code
-                            </a>
-                            <a href="#" class="project-link">
-                                <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
-                                    <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/>
-                                </svg>
-                                Live Demo
-                            </a>
+
+                        <!-- Review of AGI: Implications for the U.S. Workforce and Economic Stability -->
+                        <div class="project-card">
+                            <div class="project-image">
+                                <div class="placeholder"><img src="Week 3.png" height="400px" width="600px"></div>
+                            </div>
+                            <div class="project-info">
+                                <h3>Review of AGI: Implications for the U.S. Workforce and Economic Stability</h3>
+                                <p>Analyzes how artificial general intelligence could transform the U.S. workforce and economic landscape.</p>
+                               <div class="project-tech">
+                                    <span class="tech-tag">Chat GPT</span>
+                                    <span class="tech-tag">NotebookLM</span>
+                                    <span class="tech-tag">Gamma</span>
+                                    <span class="tech-tag">Powerpoint Presentation</span>
+                                </div>
+                                <div class="project-links">
+                                   <a href="https://drive.google.com/drive/folders/1uOsRT_3JXfHetN4T3YJkUXVTCkvQeYUm?usp=sharing" class="project-link">
+                                        <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                                           <path fill-rule="evenodd" clip-rule="evenodd" d="m2 2 1-1h9l1 1v12l-1 1H3l-1-1zm1 0v12h9V2zm1 2 1-1h5l1 1v1l-1 1H5L4 5zm1 0v1h5V4zm10 1h-1v2h1zm-1 3h1v2h-1zm1 3h-1v2h1z"/></svg>
+                                        NotebookLM
+                                    </a>
+                                    <a href="https://drive.google.com/drive/folders/1uOsRT_3JXfHetN4T3YJkUXVTCkvQeYUm?usp=sharing" class="project-link">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"  viewBox="0 0 48 48" fill="currentColor" xml:space="preserve"><path d="M47.987 21.938a1 1 0 0 0-.053-.264c-.011-.032-.019-.063-.033-.094a1 1 0 0 0-.193-.285l-.001-.001L42 15.586V10c0-.022-.011-.041-.013-.063a1 1 0 0 0-.051-.257c-.011-.032-.019-.063-.034-.094a1 1 0 0 0-.196-.293l-9-9a1 1 0 0 0-.294-.197q-.044-.018-.09-.032a1 1 0 0 0-.265-.053C32.038.01 32.02 0 32 0H7a1 1 0 0 0-1 1v14.586L.293 21.293l-.002.002a1 1 0 0 0-.192.285c-.014.031-.022.062-.033.094a1 1 0 0 0-.053.264C.011 21.96 0 21.978 0 22v19a1 1 0 0 0 1 1h5v5a1 1 0 0 0 1 1h34a1 1 0 0 0 1-1v-5h5a1 1 0 0 0 1-1V22c0-.022-.011-.04-.013-.062M44.586 21H42v-2.586zm-6-12H33V3.414zM8 2h23v8a1 1 0 0 0 1 1h8v10H8zM6 18.414V21H3.414zM40 46H8v-4h32zm6-6H2V23h44z"/><path d="M29.1 27.698h2.261V38h2.006V27.698h2.261v-1.734H29.1zm-1.437-.978a2.8 2.8 0 0 0-1.097-.586 4.5 4.5 0 0 0-1.19-.17h-3.332V38h2.006v-4.828h1.428q.629 0 1.224-.221a2.9 2.9 0 0 0 1.054-.68q.459-.459.74-1.148t.281-1.606q0-1.02-.315-1.7c-.315-.68-.476-.819-.799-1.097m-1.283 4.285q-.459.501-1.173.501h-1.156v-3.825h1.156q.714 0 1.173.442t.459 1.411-.459 1.471m-7.131-4.285a2.8 2.8 0 0 0-1.097-.586 4.5 4.5 0 0 0-1.19-.17H13.63V38h2.006v-4.828h1.428q.628 0 1.224-.221a2.9 2.9 0 0 0 1.054-.68q.459-.459.74-1.148t.281-1.606q0-1.02-.315-1.7a3.2 3.2 0 0 0-.799-1.097m-1.284 4.285q-.459.501-1.173.501h-1.156v-3.825h1.156q.714 0 1.173.442t.459 1.411-.459 1.471"/></svg> 
+                                  Presentation
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                         <!--Ex-Google CEO: What Artificial Superintelligence Will Actually Look Like-->
+                        <div class="project-card">
+                            <div class="project-image">
+                                <div class="placeholder"><img src="Week 4.png" height="400px" width="600px"></div>
+                            </div>
+                            <div class="project-info">
+                                <h3>Ex-Google CEO: What Artificial Superintelligence Will Actually Look Like</h3>
+                                <p>Eric Schmidt discusses how superintelligence may evolve beyond current AI systems.
+                                   He emphasizes alignment, safety, and responsible long-term development..</p>
+                                 <div class="project-tech">
+                                    <span class="tech-tag">Chat GPT</span>
+                                    <span class="tech-tag">NotebookLM</span>
+                                    <span class="tech-tag">Gamma</span>
+                                    <span class="tech-tag">Powerpoint Presentation</span>
+                                </div>
+                                <div class="project-links">
+                                   <a href="https://drive.google.com/drive/folders/1JmXob8NdtWDfiTKdudFdY3Qo_sCY4Y8l?usp=sharing" class="project-link">
+                                        <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                                           <path fill-rule="evenodd" clip-rule="evenodd" d="m2 2 1-1h9l1 1v12l-1 1H3l-1-1zm1 0v12h9V2zm1 2 1-1h5l1 1v1l-1 1H5L4 5zm1 0v1h5V4zm10 1h-1v2h1zm-1 3h1v2h-1zm1 3h-1v2h1z"/></svg>
+                                        NotebookLM
+                                    </a>
+                                    <a href="https://drive.google.com/drive/folders/1JmXob8NdtWDfiTKdudFdY3Qo_sCY4Y8l?usp=sharing" class="project-link">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"  viewBox="0 0 48 48" fill="currentColor" xml:space="preserve"><path d="M47.987 21.938a1 1 0 0 0-.053-.264c-.011-.032-.019-.063-.033-.094a1 1 0 0 0-.193-.285l-.001-.001L42 15.586V10c0-.022-.011-.041-.013-.063a1 1 0 0 0-.051-.257c-.011-.032-.019-.063-.034-.094a1 1 0 0 0-.196-.293l-9-9a1 1 0 0 0-.294-.197q-.044-.018-.09-.032a1 1 0 0 0-.265-.053C32.038.01 32.02 0 32 0H7a1 1 0 0 0-1 1v14.586L.293 21.293l-.002.002a1 1 0 0 0-.192.285c-.014.031-.022.062-.033.094a1 1 0 0 0-.053.264C.011 21.96 0 21.978 0 22v19a1 1 0 0 0 1 1h5v5a1 1 0 0 0 1 1h34a1 1 0 0 0 1-1v-5h5a1 1 0 0 0 1-1V22c0-.022-.011-.04-.013-.062M44.586 21H42v-2.586zm-6-12H33V3.414zM8 2h23v8a1 1 0 0 0 1 1h8v10H8zM6 18.414V21H3.414zM40 46H8v-4h32zm6-6H2V23h44z"/><path d="M29.1 27.698h2.261V38h2.006V27.698h2.261v-1.734H29.1zm-1.437-.978a2.8 2.8 0 0 0-1.097-.586 4.5 4.5 0 0 0-1.19-.17h-3.332V38h2.006v-4.828h1.428q.629 0 1.224-.221a2.9 2.9 0 0 0 1.054-.68q.459-.459.74-1.148t.281-1.606q0-1.02-.315-1.7c-.315-.68-.476-.819-.799-1.097m-1.283 4.285q-.459.501-1.173.501h-1.156v-3.825h1.156q.714 0 1.173.442t.459 1.411-.459 1.471m-7.131-4.285a2.8 2.8 0 0 0-1.097-.586 4.5 4.5 0 0 0-1.19-.17H13.63V38h2.006v-4.828h1.428q.628 0 1.224-.221a2.9 2.9 0 0 0 1.054-.68q.459-.459.74-1.148t.281-1.606q0-1.02-.315-1.7a3.2 3.2 0 0 0-.799-1.097m-1.284 4.285q-.459.501-1.173.501h-1.156v-3.825h1.156q.714 0 1.173.442t.459 1.411-.459 1.471"/></svg> 
+                                  Presentation
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- The impact of integrating artificial intelligence and BIM systems on the development of construction methodologies -->
+                        <div class="project-card">
+                            <div class="project-image">
+                                <div class="placeholder"><img src="Week 5.png" height="400px" width="600px"></div>
+                            </div>
+                            <div class="project-info">
+                                <h3>The impact of integrating artificial intelligence and BIM systems on the development of construction methodologies</h3>
+                                <p>Combining AI with Building Information Modeling improves design automation and decision-making.
+                                   It enhances construction efficiency, energy performance, and early-phase analysis..</p>
+                               <div class="project-tech">
+                                    <span class="tech-tag">Chat GPT</span>
+                                    <span class="tech-tag">NotebookLM</span>
+                                    <span class="tech-tag">Gamma</span>
+                                    <span class="tech-tag">Powerpoint Presentation</span>
+                                </div>
+                                <div class="project-links">
+                                    <a href="https://drive.google.com/drive/folders/1m3X4oo1g1HpmubjfXlTjgzl9GoAgc-8L?usp=drive_link" class="project-link">
+                                        <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                                           <path fill-rule="evenodd" clip-rule="evenodd" d="m2 2 1-1h9l1 1v12l-1 1H3l-1-1zm1 0v12h9V2zm1 2 1-1h5l1 1v1l-1 1H5L4 5zm1 0v1h5V4zm10 1h-1v2h1zm-1 3h1v2h-1zm1 3h-1v2h1z"/></svg>
+                                        NotebookLM
+                                    </a>
+                                    <a href="https://drive.google.com/drive/folders/1m3X4oo1g1HpmubjfXlTjgzl9GoAgc-8L?usp=drive_link" class="project-link">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"  viewBox="0 0 48 48" fill="currentColor" xml:space="preserve"><path d="M47.987 21.938a1 1 0 0 0-.053-.264c-.011-.032-.019-.063-.033-.094a1 1 0 0 0-.193-.285l-.001-.001L42 15.586V10c0-.022-.011-.041-.013-.063a1 1 0 0 0-.051-.257c-.011-.032-.019-.063-.034-.094a1 1 0 0 0-.196-.293l-9-9a1 1 0 0 0-.294-.197q-.044-.018-.09-.032a1 1 0 0 0-.265-.053C32.038.01 32.02 0 32 0H7a1 1 0 0 0-1 1v14.586L.293 21.293l-.002.002a1 1 0 0 0-.192.285c-.014.031-.022.062-.033.094a1 1 0 0 0-.053.264C.011 21.96 0 21.978 0 22v19a1 1 0 0 0 1 1h5v5a1 1 0 0 0 1 1h34a1 1 0 0 0 1-1v-5h5a1 1 0 0 0 1-1V22c0-.022-.011-.04-.013-.062M44.586 21H42v-2.586zm-6-12H33V3.414zM8 2h23v8a1 1 0 0 0 1 1h8v10H8zM6 18.414V21H3.414zM40 46H8v-4h32zm6-6H2V23h44z"/><path d="M29.1 27.698h2.261V38h2.006V27.698h2.261v-1.734H29.1zm-1.437-.978a2.8 2.8 0 0 0-1.097-.586 4.5 4.5 0 0 0-1.19-.17h-3.332V38h2.006v-4.828h1.428q.629 0 1.224-.221a2.9 2.9 0 0 0 1.054-.68q.459-.459.74-1.148t.281-1.606q0-1.02-.315-1.7c-.315-.68-.476-.819-.799-1.097m-1.283 4.285q-.459.501-1.173.501h-1.156v-3.825h1.156q.714 0 1.173.442t.459 1.411-.459 1.471m-7.131-4.285a2.8 2.8 0 0 0-1.097-.586 4.5 4.5 0 0 0-1.19-.17H13.63V38h2.006v-4.828h1.428q.628 0 1.224-.221a2.9 2.9 0 0 0 1.054-.68q.459-.459.74-1.148t.281-1.606q0-1.02-.315-1.7a3.2 3.2 0 0 0-.799-1.097m-1.284 4.285q-.459.501-1.173.501h-1.156v-3.825h1.156q.714 0 1.173.442t.459 1.411-.459 1.471"/></svg> 
+                                  Presentation
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                          <!-- How to use generative design, AI, and 3D modeling for improved site planning -->
+                        <div class="project-card">
+                            <div class="project-image">
+                                <div class="placeholder"><img src="Week 6.png" height="400px" width="600px"></div>
+                            </div>
+                            <div class="project-info">
+                                <h3>How to use generative design, AI, and 3D modeling for improved site planning</h3>
+                                <p>AI-driven generative design allows teams to test multiple design options rapidly.
+                                   It improves site analysis and connects early planning to detailed design workflows.</p>
+                               <div class="project-tech">
+                                    <span class="tech-tag">Chat GPT</span>
+                                    <span class="tech-tag">NotebookLM</span>
+                                    <span class="tech-tag">Gamma</span>
+                                    <span class="tech-tag">Powerpoint Presentation</span>
+                                </div>
+                                <div class="project-links">
+                                    <a href="https://drive.google.com/drive/folders/1rJAdmmk8Jqbpydnjtp4H2wsJHRp7K8ou?usp=sharing" class="project-link">
+                                        <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                                           <path fill-rule="evenodd" clip-rule="evenodd" d="m2 2 1-1h9l1 1v12l-1 1H3l-1-1zm1 0v12h9V2zm1 2 1-1h5l1 1v1l-1 1H5L4 5zm1 0v1h5V4zm10 1h-1v2h1zm-1 3h1v2h-1zm1 3h-1v2h1z"/></svg>
+                                        NotebookLM
+                                    </a>
+                                    <a href="https://drive.google.com/drive/folders/1rJAdmmk8Jqbpydnjtp4H2wsJHRp7K8ou?usp=sharing" class="project-link">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"  viewBox="0 0 48 48" fill="currentColor" xml:space="preserve"><path d="M47.987 21.938a1 1 0 0 0-.053-.264c-.011-.032-.019-.063-.033-.094a1 1 0 0 0-.193-.285l-.001-.001L42 15.586V10c0-.022-.011-.041-.013-.063a1 1 0 0 0-.051-.257c-.011-.032-.019-.063-.034-.094a1 1 0 0 0-.196-.293l-9-9a1 1 0 0 0-.294-.197q-.044-.018-.09-.032a1 1 0 0 0-.265-.053C32.038.01 32.02 0 32 0H7a1 1 0 0 0-1 1v14.586L.293 21.293l-.002.002a1 1 0 0 0-.192.285c-.014.031-.022.062-.033.094a1 1 0 0 0-.053.264C.011 21.96 0 21.978 0 22v19a1 1 0 0 0 1 1h5v5a1 1 0 0 0 1 1h34a1 1 0 0 0 1-1v-5h5a1 1 0 0 0 1-1V22c0-.022-.011-.04-.013-.062M44.586 21H42v-2.586zm-6-12H33V3.414zM8 2h23v8a1 1 0 0 0 1 1h8v10H8zM6 18.414V21H3.414zM40 46H8v-4h32zm6-6H2V23h44z"/><path d="M29.1 27.698h2.261V38h2.006V27.698h2.261v-1.734H29.1zm-1.437-.978a2.8 2.8 0 0 0-1.097-.586 4.5 4.5 0 0 0-1.19-.17h-3.332V38h2.006v-4.828h1.428q.629 0 1.224-.221a2.9 2.9 0 0 0 1.054-.68q.459-.459.74-1.148t.281-1.606q0-1.02-.315-1.7c-.315-.68-.476-.819-.799-1.097m-1.283 4.285q-.459.501-1.173.501h-1.156v-3.825h1.156q.714 0 1.173.442t.459 1.411-.459 1.471m-7.131-4.285a2.8 2.8 0 0 0-1.097-.586 4.5 4.5 0 0 0-1.19-.17H13.63V38h2.006v-4.828h1.428q.628 0 1.224-.221a2.9 2.9 0 0 0 1.054-.68q.459-.459.74-1.148t.281-1.606q0-1.02-.315-1.7a3.2 3.2 0 0 0-.799-1.097m-1.284 4.285q-.459.501-1.173.501h-1.156v-3.825h1.156q.714 0 1.173.442t.459 1.411-.459 1.471"/></svg> 
+                                  Presentation
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                          <!-- AI-in-Preconstruction-and-Project-Management -->
+                        <div class="project-card">
+                            <div class="project-image">
+                                <div class="placeholder"><img src="Week 7.png" height="400px" width="600px"></div>
+                            </div>
+                            <div class="project-info">
+                                <h3>AI-in-Preconstruction-and-Project-Management</h3>
+                                <p>AI optimizes scheduling, budgeting, and risk management before projects begin.
+                                   It helps teams predict problems early, reducing cost overruns and delays.</p>
+                               <div class="project-tech">
+                                    <span class="tech-tag">Chat GPT</span>
+                                    <span class="tech-tag">NotebookLM</span>
+                                    <span class="tech-tag">Gamma</span>
+                                    <span class="tech-tag">Powerpoint Presentation</span>
+                                </div>
+                                <div class="project-links">
+                                   <a href="https://drive.google.com/drive/folders/1KglIc8pK0GbjagLzlupaOFYNF0qre8rj?usp=sharing" class="project-link">
+                                        <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                                           <path fill-rule="evenodd" clip-rule="evenodd" d="m2 2 1-1h9l1 1v12l-1 1H3l-1-1zm1 0v12h9V2zm1 2 1-1h5l1 1v1l-1 1H5L4 5zm1 0v1h5V4zm10 1h-1v2h1zm-1 3h1v2h-1zm1 3h-1v2h1z"/></svg>
+                                        NotebookLM
+                                    </a>
+                                    <a href="https://drive.google.com/drive/folders/1KglIc8pK0GbjagLzlupaOFYNF0qre8rj?usp=sharing" class="project-link">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"  viewBox="0 0 48 48" fill="currentColor" xml:space="preserve"><path d="M47.987 21.938a1 1 0 0 0-.053-.264c-.011-.032-.019-.063-.033-.094a1 1 0 0 0-.193-.285l-.001-.001L42 15.586V10c0-.022-.011-.041-.013-.063a1 1 0 0 0-.051-.257c-.011-.032-.019-.063-.034-.094a1 1 0 0 0-.196-.293l-9-9a1 1 0 0 0-.294-.197q-.044-.018-.09-.032a1 1 0 0 0-.265-.053C32.038.01 32.02 0 32 0H7a1 1 0 0 0-1 1v14.586L.293 21.293l-.002.002a1 1 0 0 0-.192.285c-.014.031-.022.062-.033.094a1 1 0 0 0-.053.264C.011 21.96 0 21.978 0 22v19a1 1 0 0 0 1 1h5v5a1 1 0 0 0 1 1h34a1 1 0 0 0 1-1v-5h5a1 1 0 0 0 1-1V22c0-.022-.011-.04-.013-.062M44.586 21H42v-2.586zm-6-12H33V3.414zM8 2h23v8a1 1 0 0 0 1 1h8v10H8zM6 18.414V21H3.414zM40 46H8v-4h32zm6-6H2V23h44z"/><path d="M29.1 27.698h2.261V38h2.006V27.698h2.261v-1.734H29.1zm-1.437-.978a2.8 2.8 0 0 0-1.097-.586 4.5 4.5 0 0 0-1.19-.17h-3.332V38h2.006v-4.828h1.428q.629 0 1.224-.221a2.9 2.9 0 0 0 1.054-.68q.459-.459.74-1.148t.281-1.606q0-1.02-.315-1.7c-.315-.68-.476-.819-.799-1.097m-1.283 4.285q-.459.501-1.173.501h-1.156v-3.825h1.156q.714 0 1.173.442t.459 1.411-.459 1.471m-7.131-4.285a2.8 2.8 0 0 0-1.097-.586 4.5 4.5 0 0 0-1.19-.17H13.63V38h2.006v-4.828h1.428q.628 0 1.224-.221a2.9 2.9 0 0 0 1.054-.68q.459-.459.74-1.148t.281-1.606q0-1.02-.315-1.7a3.2 3.2 0 0 0-.799-1.097m-1.284 4.285q-.459.501-1.173.501h-1.156v-3.825h1.156q.714 0 1.173.442t.459 1.411-.459 1.471"/></svg> 
+                                  Presentation
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                          <!-- Artificial Intelligence in Construction Risk Management -->
+                        <div class="project-card">
+                            <div class="project-image">
+                                <div class="placeholder"><img src="Week 8.png" height="400px" width="600px"></div>
+                            </div>
+                            <div class="project-info">
+                                <h3>Artificial Intelligence in Construction Risk Management: Improving Safety and Efficiency in Smart City Development</h3>
+                                <p>AI improves safety and efficiency in smart-city development by predicting hazards.
+                                   It requires quality data, workforce training, and integration with existing systems.</p>
+                               <div class="project-tech">
+                                    <span class="tech-tag">Chat GPT</span>
+                                    <span class="tech-tag">NotebookLM</span>
+                                    <span class="tech-tag">Gamma</span>
+                                    <span class="tech-tag">Powerpoint Presentation</span>
+                                </div>
+                                <div class="project-links">
+                                  <a href="https://drive.google.com/drive/folders/10I42Ne3WuQBh1DkIwHGO1NBjeaLhibHK?usp=sharing" class="project-link">
+                                        <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                                           <path fill-rule="evenodd" clip-rule="evenodd" d="m2 2 1-1h9l1 1v12l-1 1H3l-1-1zm1 0v12h9V2zm1 2 1-1h5l1 1v1l-1 1H5L4 5zm1 0v1h5V4zm10 1h-1v2h1zm-1 3h1v2h-1zm1 3h-1v2h1z"/></svg>
+                                        NotebookLM
+                                    </a>
+                                    <a href="https://drive.google.com/drive/folders/10I42Ne3WuQBh1DkIwHGO1NBjeaLhibHK?usp=sharing" class="project-link">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"  viewBox="0 0 48 48" fill="currentColor" xml:space="preserve"><path d="M47.987 21.938a1 1 0 0 0-.053-.264c-.011-.032-.019-.063-.033-.094a1 1 0 0 0-.193-.285l-.001-.001L42 15.586V10c0-.022-.011-.041-.013-.063a1 1 0 0 0-.051-.257c-.011-.032-.019-.063-.034-.094a1 1 0 0 0-.196-.293l-9-9a1 1 0 0 0-.294-.197q-.044-.018-.09-.032a1 1 0 0 0-.265-.053C32.038.01 32.02 0 32 0H7a1 1 0 0 0-1 1v14.586L.293 21.293l-.002.002a1 1 0 0 0-.192.285c-.014.031-.022.062-.033.094a1 1 0 0 0-.053.264C.011 21.96 0 21.978 0 22v19a1 1 0 0 0 1 1h5v5a1 1 0 0 0 1 1h34a1 1 0 0 0 1-1v-5h5a1 1 0 0 0 1-1V22c0-.022-.011-.04-.013-.062M44.586 21H42v-2.586zm-6-12H33V3.414zM8 2h23v8a1 1 0 0 0 1 1h8v10H8zM6 18.414V21H3.414zM40 46H8v-4h32zm6-6H2V23h44z"/><path d="M29.1 27.698h2.261V38h2.006V27.698h2.261v-1.734H29.1zm-1.437-.978a2.8 2.8 0 0 0-1.097-.586 4.5 4.5 0 0 0-1.19-.17h-3.332V38h2.006v-4.828h1.428q.629 0 1.224-.221a2.9 2.9 0 0 0 1.054-.68q.459-.459.74-1.148t.281-1.606q0-1.02-.315-1.7c-.315-.68-.476-.819-.799-1.097m-1.283 4.285q-.459.501-1.173.501h-1.156v-3.825h1.156q.714 0 1.173.442t.459 1.411-.459 1.471m-7.131-4.285a2.8 2.8 0 0 0-1.097-.586 4.5 4.5 0 0 0-1.19-.17H13.63V38h2.006v-4.828h1.428q.628 0 1.224-.221a2.9 2.9 0 0 0 1.054-.68q.459-.459.74-1.148t.281-1.606q0-1.02-.315-1.7a3.2 3.2 0 0 0-.799-1.097m-1.284 4.285q-.459.501-1.173.501h-1.156v-3.825h1.156q.714 0 1.173.442t.459 1.411-.459 1.471"/></svg> 
+                                  Presentation
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                          <!-- Ilya Sutskever Calls for Superalignment Before Data Centers Evolve Into Artificial Life -->
+                        <div class="project-card">
+                            <div class="project-image">
+                                <div class="placeholder"><img src="Week 9.png" height="400px" width="600px"></div>
+                            </div>
+                            <div class="project-info">
+                                <h3>Ilya Sutskever Calls for Superalignment Before Data Centers Evolve Into Artificial Life</h3>
+                                <p>Sutskever urges prioritizing alignment of powerful AI systems before they become autonomous.
+                                   He warns that unchecked growth in AI could lead to unpredictable, life-like behavior.</p>
+                               <div class="project-tech">
+                                    <span class="tech-tag">Chat GPT</span>
+                                    <span class="tech-tag">NotebookLM</span>
+                                    <span class="tech-tag">Gamma</span>
+                                    <span class="tech-tag">Powerpoint Presentation</span>
+                                </div>
+                                <div class="project-links">
+                                   <a href="https://drive.google.com/drive/folders/1tRwL4Qhi2Qt4CVOmTRFr12HFGG4rMrXj?usp=sharing" class="project-link">
+                                        <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                                           <path fill-rule="evenodd" clip-rule="evenodd" d="m2 2 1-1h9l1 1v12l-1 1H3l-1-1zm1 0v12h9V2zm1 2 1-1h5l1 1v1l-1 1H5L4 5zm1 0v1h5V4zm10 1h-1v2h1zm-1 3h1v2h-1zm1 3h-1v2h1z"/></svg>
+                                        NotebookLM
+                                    </a>
+                                    <a href="https://drive.google.com/drive/folders/1tRwL4Qhi2Qt4CVOmTRFr12HFGG4rMrXj?usp=sharing" class="project-link">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"  viewBox="0 0 48 48" fill="currentColor" xml:space="preserve"><path d="M47.987 21.938a1 1 0 0 0-.053-.264c-.011-.032-.019-.063-.033-.094a1 1 0 0 0-.193-.285l-.001-.001L42 15.586V10c0-.022-.011-.041-.013-.063a1 1 0 0 0-.051-.257c-.011-.032-.019-.063-.034-.094a1 1 0 0 0-.196-.293l-9-9a1 1 0 0 0-.294-.197q-.044-.018-.09-.032a1 1 0 0 0-.265-.053C32.038.01 32.02 0 32 0H7a1 1 0 0 0-1 1v14.586L.293 21.293l-.002.002a1 1 0 0 0-.192.285c-.014.031-.022.062-.033.094a1 1 0 0 0-.053.264C.011 21.96 0 21.978 0 22v19a1 1 0 0 0 1 1h5v5a1 1 0 0 0 1 1h34a1 1 0 0 0 1-1v-5h5a1 1 0 0 0 1-1V22c0-.022-.011-.04-.013-.062M44.586 21H42v-2.586zm-6-12H33V3.414zM8 2h23v8a1 1 0 0 0 1 1h8v10H8zM6 18.414V21H3.414zM40 46H8v-4h32zm6-6H2V23h44z"/><path d="M29.1 27.698h2.261V38h2.006V27.698h2.261v-1.734H29.1zm-1.437-.978a2.8 2.8 0 0 0-1.097-.586 4.5 4.5 0 0 0-1.19-.17h-3.332V38h2.006v-4.828h1.428q.629 0 1.224-.221a2.9 2.9 0 0 0 1.054-.68q.459-.459.74-1.148t.281-1.606q0-1.02-.315-1.7c-.315-.68-.476-.819-.799-1.097m-1.283 4.285q-.459.501-1.173.501h-1.156v-3.825h1.156q.714 0 1.173.442t.459 1.411-.459 1.471m-7.131-4.285a2.8 2.8 0 0 0-1.097-.586 4.5 4.5 0 0 0-1.19-.17H13.63V38h2.006v-4.828h1.428q.628 0 1.224-.221a2.9 2.9 0 0 0 1.054-.68q.459-.459.74-1.148t.281-1.606q0-1.02-.315-1.7a3.2 3.2 0 0 0-.799-1.097m-1.284 4.285q-.459.501-1.173.501h-1.156v-3.825h1.156q.714 0 1.173.442t.459 1.411-.459 1.471"/></svg> 
+                                  Presentation
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                          <!-- AI Tools in Society: Impacts on Cognitive Offloading and the Future of Critical Thinking -->
+                        <div class="project-card">
+                            <div class="project-image">
+                                <div class="placeholder"><img src="Week 10.png" height="400px" width="600px"></div>
+                            </div>
+                            <div class="project-info">
+                                <h3>AI Tools in Society: Impacts on Cognitive Offloading and the Future of Critical Thinking</h3>
+                                <p>Reliance on AI tools may reduce human critical thinking and problem-solving ability.
+                                   The article calls for balanced use of AI to preserve human creativity and reasoning.</p>
+                               <div class="project-tech">
+                                    <span class="tech-tag">Chat GPT</span>
+                                    <span class="tech-tag">NotebookLM</span>
+                                    <span class="tech-tag">Gamma</span>
+                                    <span class="tech-tag">Powerpoint Presentation</span>
+                                </div>
+                                <div class="project-links">
+                                   <a href="https://drive.google.com/drive/folders/1xeiFNV30zzlQ_c5WgRrq8CzAmRI4JqvV?usp=sharing" class="project-link">
+                                        <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                                           <path fill-rule="evenodd" clip-rule="evenodd" d="m2 2 1-1h9l1 1v12l-1 1H3l-1-1zm1 0v12h9V2zm1 2 1-1h5l1 1v1l-1 1H5L4 5zm1 0v1h5V4zm10 1h-1v2h1zm-1 3h1v2h-1zm1 3h-1v2h1z"/></svg>
+                                        NotebookLM
+                                    </a>
+                                    <a href="https://drive.google.com/drive/folders/1xeiFNV30zzlQ_c5WgRrq8CzAmRI4JqvV?usp=sharing" class="project-link">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"  viewBox="0 0 48 48" fill="currentColor" xml:space="preserve"><path d="M47.987 21.938a1 1 0 0 0-.053-.264c-.011-.032-.019-.063-.033-.094a1 1 0 0 0-.193-.285l-.001-.001L42 15.586V10c0-.022-.011-.041-.013-.063a1 1 0 0 0-.051-.257c-.011-.032-.019-.063-.034-.094a1 1 0 0 0-.196-.293l-9-9a1 1 0 0 0-.294-.197q-.044-.018-.09-.032a1 1 0 0 0-.265-.053C32.038.01 32.02 0 32 0H7a1 1 0 0 0-1 1v14.586L.293 21.293l-.002.002a1 1 0 0 0-.192.285c-.014.031-.022.062-.033.094a1 1 0 0 0-.053.264C.011 21.96 0 21.978 0 22v19a1 1 0 0 0 1 1h5v5a1 1 0 0 0 1 1h34a1 1 0 0 0 1-1v-5h5a1 1 0 0 0 1-1V22c0-.022-.011-.04-.013-.062M44.586 21H42v-2.586zm-6-12H33V3.414zM8 2h23v8a1 1 0 0 0 1 1h8v10H8zM6 18.414V21H3.414zM40 46H8v-4h32zm6-6H2V23h44z"/><path d="M29.1 27.698h2.261V38h2.006V27.698h2.261v-1.734H29.1zm-1.437-.978a2.8 2.8 0 0 0-1.097-.586 4.5 4.5 0 0 0-1.19-.17h-3.332V38h2.006v-4.828h1.428q.629 0 1.224-.221a2.9 2.9 0 0 0 1.054-.68q.459-.459.74-1.148t.281-1.606q0-1.02-.315-1.7c-.315-.68-.476-.819-.799-1.097m-1.283 4.285q-.459.501-1.173.501h-1.156v-3.825h1.156q.714 0 1.173.442t.459 1.411-.459 1.471m-7.131-4.285a2.8 2.8 0 0 0-1.097-.586 4.5 4.5 0 0 0-1.19-.17H13.63V38h2.006v-4.828h1.428q.628 0 1.224-.221a2.9 2.9 0 0 0 1.054-.68q.459-.459.74-1.148t.281-1.606q0-1.02-.315-1.7a3.2 3.2 0 0 0-.799-1.097m-1.284 4.285q-.459.501-1.173.501h-1.156v-3.825h1.156q.714 0 1.173.442t.459 1.411-.459 1.471"/></svg> 
+                                  Presentation
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- The Role of AI in Cybersecurity:A Cross-Industry Model -->
+                        <div class="project-card">
+                            <div class="project-image">
+                                <div class="placeholder"><img src="Week 11.png" height="400px" width="600px"></div>
+                            </div>
+                            <div class="project-info">
+                                <h3>The Role of AI in Cybersecurity:A Cross-Industry Model</h3>
+                                <p>AI strengthens cybersecurity by enhancing threat detection and rapid response.
+                                   However, it also introduces new vulnerabilities that demand strong oversight and regulation.</p>
+                                 <div class="project-tech ">
+                                    <span class="tech-tag">Chat GPT</span>
+                                    <span class="tech-tag">NotebookLM</span>
+                                    <span class="tech-tag">Gamma</span>
+                                    <span class="tech-tag">Powerpoint Presentation</span>
+                                </div>
+                                <div class="project-links">
+                                    <a href="https://drive.google.com/drive/folders/1J7ywEQWys5Yo87NSuS5spi7L3geuMkDu?usp=sharing" class="project-link">
+                                        <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                                           <path fill-rule="evenodd" clip-rule="evenodd" d="m2 2 1-1h9l1 1v12l-1 1H3l-1-1zm1 0v12h9V2zm1 2 1-1h5l1 1v1l-1 1H5L4 5zm1 0v1h5V4zm10 1h-1v2h1zm-1 3h1v2h-1zm1 3h-1v2h1z"/></svg>
+                                        NotebookLM
+                                    </a>
+                                    <a href="https://drive.google.com/drive/folders/1J7ywEQWys5Yo87NSuS5spi7L3geuMkDu?usp=sharing" class="project-link">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"  viewBox="0 0 48 48" fill="currentColor" xml:space="preserve"><path d="M47.987 21.938a1 1 0 0 0-.053-.264c-.011-.032-.019-.063-.033-.094a1 1 0 0 0-.193-.285l-.001-.001L42 15.586V10c0-.022-.011-.041-.013-.063a1 1 0 0 0-.051-.257c-.011-.032-.019-.063-.034-.094a1 1 0 0 0-.196-.293l-9-9a1 1 0 0 0-.294-.197q-.044-.018-.09-.032a1 1 0 0 0-.265-.053C32.038.01 32.02 0 32 0H7a1 1 0 0 0-1 1v14.586L.293 21.293l-.002.002a1 1 0 0 0-.192.285c-.014.031-.022.062-.033.094a1 1 0 0 0-.053.264C.011 21.96 0 21.978 0 22v19a1 1 0 0 0 1 1h5v5a1 1 0 0 0 1 1h34a1 1 0 0 0 1-1v-5h5a1 1 0 0 0 1-1V22c0-.022-.011-.04-.013-.062M44.586 21H42v-2.586zm-6-12H33V3.414zM8 2h23v8a1 1 0 0 0 1 1h8v10H8zM6 18.414V21H3.414zM40 46H8v-4h32zm6-6H2V23h44z"/><path d="M29.1 27.698h2.261V38h2.006V27.698h2.261v-1.734H29.1zm-1.437-.978a2.8 2.8 0 0 0-1.097-.586 4.5 4.5 0 0 0-1.19-.17h-3.332V38h2.006v-4.828h1.428q.629 0 1.224-.221a2.9 2.9 0 0 0 1.054-.68q.459-.459.74-1.148t.281-1.606q0-1.02-.315-1.7c-.315-.68-.476-.819-.799-1.097m-1.283 4.285q-.459.501-1.173.501h-1.156v-3.825h1.156q.714 0 1.173.442t.459 1.411-.459 1.471m-7.131-4.285a2.8 2.8 0 0 0-1.097-.586 4.5 4.5 0 0 0-1.19-.17H13.63V38h2.006v-4.828h1.428q.628 0 1.224-.221a2.9 2.9 0 0 0 1.054-.68q.459-.459.74-1.148t.281-1.606q0-1.02-.315-1.7a3.2 3.2 0 0 0-.799-1.097m-1.284 4.285q-.459.501-1.173.501h-1.156v-3.825h1.156q.714 0 1.173.442t.459 1.411-.459 1.471"/></svg> 
+                                  Presentation
+                                    </a>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
+                <button class="carousel-btn carousel-btn-next" aria-label="Next projects">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="9 18 15 12 9 6"></polyline>
+                    </svg>
+                </button>
             </div>
+
+            <div class="carousel-dots"></div>
         </div>
     </section>
 
@@ -1191,88 +1561,97 @@
     <section id="achievements" class="achievements">
         <div class="container">
             <h2>Achievements & Recognition</h2>
-            <p class="achievements-subtitle">Milestones and acknowledgements received throughout my professional journey.</p>
-            
+            <p class="achievements-subtitle">Milestones and acknowledgements received throughout my professional
+                journey.</p>
+
             <div class="achievements-grid">
                 <!-- Achievement 1 -->
                 <div class="achievement-card green-border">
-                    <div class="achievement-icon green">✓</div>
+                    <div class="achievement-icon green">🏆</div>
                     <h3>OSHA Outreach for the Construction Industry</h3>
                     <div class="achievement-org">OSHA Education Center</div>
                     <div class="achievement-date">Aug 2025</div>
-                    <p>Trained under OSHA Outreach Program for Construction, focusing on workplace safety standards and compliance.</p>
+                    <p>Trained under OSHA Outreach Program for Construction, focusing on workplace safety standards and
+                        compliance.</p>
                 </div>
 
                 <!-- Achievement 2 -->
                 <div class="achievement-card green-border">
-                    <div class="achievement-icon green">✓</div>
-                    <h3>Procore Certified: Student</h3>
-                    <div class="achievement-org">Procore Technologies</div>
-                    <div class="achievement-date">June 2025</div>
-                    <p>Certified in Procore (Student) with skills in construction project management and digital collaboration tools.</p>
+                    <div class="achievement-icon green">🏆</div>
+                    <h3>LEED Green Associate</h3>
+                    <div class="achievement-org">U.S. Green Building Council</div>
+                    <div class="achievement-date">Nov 2025</div>
+                    <p> LEED Green Associate (LEED GA) exam, a significant step forward in deepening my knowledge of sustainable building practices and green construction principles.</p>
                 </div>
 
                 <!-- Achievement 3 -->
                 <div class="achievement-card green-border">
-                    <div class="achievement-icon green">✓</div>
-                    <h3>Microsoft Excel for Construction Management</h3>
-                    <div class="achievement-org">Udemy</div>
-                    <div class="achievement-date">Aug 2025</div>
-                    <p>Microsoft Excel for Construction Management — applied Excel tools for efficient project planning and resource management.</p>
+                    <div class="achievement-icon green">🏅</div>
+                    <h3>Procore Certified: Student</h3>
+                    <div class="achievement-org">Procore Technologies</div>
+                    <div class="achievement-date">June 2025</div>
+                    <p>Certified in Procore (Student) with skills in construction project management and digital
+                        collaboration tools.</p>
                 </div>
 
                 <!-- Achievement 4 -->
+                <div class="achievement-card green-border">
+                    <div class="achievement-icon green">🏅</div>
+                    <h3>Microsoft Excel for Construction Management</h3>
+                    <div class="achievement-org">Udemy</div>
+                    <div class="achievement-date">Aug 2025</div>
+                    <p>Microsoft Excel for Construction Management — applied Excel tools for efficient project planning
+                        and resource management.</p>
+                </div>
+
+                <!-- Achievement 5 -->
                 <div class="achievement-card blue-border">
                     <div class="achievement-icon blue">🎓</div>
                     <h3>Generative AI Overview for Project Managers</h3>
                     <div class="achievement-org">Project Management Institute</div>
                     <div class="achievement-date">Sep 2024</div>
-                    <p>Certified in Generative AI Overview for Project Managers with focus on AI applications in productivity and decision-making.</p>
-                </div>
-
-                <!-- Achievement 5 -->
-                <div class="achievement-card green-border">
-                    <div class="achievement-icon green">✓</div>
-                    <h3>Revit Families- From Beginners to Pro</h3>
-                    <div class="achievement-org">Udemy</div>
-                    <div class="achievement-date">Dec 2023</div>
-                    <p>Revit Families: From Beginners to Pro — proficient in building intelligent, parametric content for advanced BIM workflows.</p>
+                    <p>Certified in Generative AI Overview for Project Managers with focus on AI applications in
+                        productivity and decision-making.</p>
                 </div>
 
                 <!-- Achievement 6 -->
                 <div class="achievement-card green-border">
-                    <div class="achievement-icon green">✓</div>
-                    <h3>Quantity Survey Estimation and Costing</h3>
-                    <div class="achievement-org">EmaxIndia</div>
-                    <div class="achievement-date">Sep 2021</div>
-                    <p>Certified in Quantity Survey Estimation and Costing — skilled in material takeoffs, cost analysis, and budget preparation.</p>
+                    <div class="achievement-icon green">🏅</div>
+                    <h3>Revit Families- From Beginners to Pro</h3>
+                    <div class="achievement-org">Udemy</div>
+                    <div class="achievement-date">Dec 2023</div>
+                    <p>Revit Families: From Beginners to Pro — proficient in building intelligent, parametric content
+                        for advanced BIM workflows.</p>
                 </div>
 
                 <!-- Achievement 7 -->
                 <div class="achievement-card green-border">
-                    <div class="achievement-icon green">✓</div>
-                    <h3>Autodesk AutoCAD User Certification</h3>
-                    <div class="achievement-org">CDAC GIST</div>
-                    <div class="achievement-date">Dec 2020</div>
-                    <p>Autodesk AutoCAD Certified User — proficient in 2D drafting, technical drawings, and design documentation.</p>
+                    <div class="achievement-icon green">🏅</div>
+                    <h3>Quantity Survey Estimation and Costing</h3>
+                    <div class="achievement-org">EmaxIndia</div>
+                    <div class="achievement-date">Sep 2021</div>
+                    <p>Certified in Quantity Survey Estimation and Costing — skilled in material takeoffs, cost
+                        analysis, and budget preparation.</p>
                 </div>
 
                 <!-- Achievement 8 -->
                 <div class="achievement-card green-border">
-                    <div class="achievement-icon green">✓</div>
-                    <h3>The Complete Revit Course</h3>
-                    <div class="achievement-org">Udemy</div>
-                    <div class="achievement-date">Sep 2020</div>
-                    <p>Trained in The Complete Revit Course with skills in 3D modeling, parametric design, and construction documentation</p>
+                    <div class="achievement-icon green">🏅</div>
+                    <h3>Autodesk AutoCAD User Certification</h3>
+                    <div class="achievement-org">CDAC GIST</div>
+                    <div class="achievement-date">Dec 2020</div>
+                    <p>Autodesk AutoCAD Certified User — proficient in 2D drafting, technical drawings, and design
+                        documentation.</p>
                 </div>
 
                 <!-- Achievement 9 -->
-                <div class="achievement-card gold-border">
-                    <div class="achievement-icon gold">🏆</div>
-                    <h3>Community Mentor Award</h3>
-                    <div class="achievement-org">Local Coding Bootcamp</div>
-                    <div class="achievement-date">August 2021</div>
-                    <p>Recognized for exceptional mentorship provided to junior developers, helping them transition successfully into tech careers.</p>
+                <div class="achievement-card green-border">
+                    <div class="achievement-icon green">🏅</div>
+                    <h3>The Complete Revit Course</h3>
+                    <div class="achievement-org">Udemy</div>
+                    <div class="achievement-date">Sep 2020</div>
+                    <p>Trained in The Complete Revit Course with skills in 3D modeling, parametric design, and
+                        construction documentation</p>
                 </div>
             </div>
         </div>
@@ -1283,37 +1662,35 @@
         <div class="container">
             <h2>Get In Touch</h2>
             <p class="contact-subtitle">Feel free to reach out for collaborations or just a friendly hello!</p>
-            
+
             <div class="contact-content">
                 <div class="contact-info">
                     <div class="contact-item">
                         <div class="contact-icon">📧</div>
                         <div>
                             <h4>Email</h4>
-                            <a href="mailto:patrick.jane@example.com">patrick.jane@example.com</a>
+                            <a href="mailto:mihirgujarati019@gmail.com">mihirgujarati019@gmail.com</a>
                         </div>
                     </div>
                     <div class="contact-item">
                         <div class="contact-icon">📱</div>
                         <div>
                             <h4>Phone</h4>
-                            <a href="tel:+15551234567">+1 (555) 123-4567</a>
+                            <a href="tel:+16026324105">+1 (602) 632-4105</a>
                         </div>
                     </div>
                     <div class="contact-item">
                         <div class="contact-icon">📍</div>
                         <div>
                             <h4>Location</h4>
-                            <p>Phoenix, Arizona, US</p>
+                            <p>Tempe, Arizona, US</p>
                         </div>
                     </div>
                     <div class="contact-social">
-                        <a href="#" class="social-link">LinkedIn</a>
-                        <a href="#" class="social-link">GitHub</a>
-                        <a href="#" class="social-link">Twitter</a>
+                        <a href="https://www.linkedin.com/in/mihirgujarati/" class="social-link">LinkedIn</a>
                     </div>
                 </div>
-                
+
                 <form class="contact-form">
                     <div class="form-group">
                         <input type="text" placeholder="Your Name" required>
@@ -1332,14 +1709,36 @@
             </div>
         </div>
     </section>
+    <!-- Tic Tac Toe Section -->
+<section id="game" style="background-color:#1f2937;padding:80px 20px;text-align:center;">
+  <h2 style="font-size:36px;margin-bottom:15px;">🎮 Play Tic Tac Toe</h2>
+  <p style="color:#b8b8b8;margin-bottom:30px;">Take a quick break and test your strategy!</p>
+
+  <div id="game-board" 
+       style="display:grid;grid-template-columns:repeat(3,100px);gap:10px;justify-content:center;margin:auto;">
+    <button class="cell"></button>
+    <button class="cell"></button>
+    <button class="cell"></button>
+    <button class="cell"></button>
+    <button class="cell"></button>
+    <button class="cell"></button>
+    <button class="cell"></button>
+    <button class="cell"></button>
+    <button class="cell"></button>
+  </div>
+
+  <p id="game-status" style="margin-top:25px;font-size:18px;color:#4a9eff;">Your Turn (X)</p>
+  <button id="reset-btn" class="btn btn-secondary" style="margin-top:20px;">Restart Game</button>
+</section>
 
     <!-- Footer -->
     <footer>
         <div class="container">
-            <p>&copy; 2025 Patrick Jane. All rights reserved.</p>
+            <p>&copy; 2025 Mihir Gujarati. All rights reserved.</p>
         </div>
     </footer>
 
+    <!-- <script src="script.js"></script> -->
     <script>
         // Smooth scrolling for navigation links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -1356,11 +1755,305 @@
         });
 
         // Form submission
-        document.querySelector('.contact-form').addEventListener('submit', function(e) {
+        document.querySelector('.contact-form').addEventListener('submit', function (e) {
             e.preventDefault();
             alert('Thank you for your message! I will get back to you soon.');
             this.reset();
         });
+
+        // Carousel functionality
+        document.addEventListener('DOMContentLoaded', function () {
+            const track = document.querySelector('.carousel-track');
+            const slides = Array.from(track.children);
+            const nextButton = document.querySelector('.carousel-btn-next');
+            const prevButton = document.querySelector('.carousel-btn-prev');
+            const dotsContainer = document.querySelector('.carousel-dots');
+
+            let currentIndex = 0;
+            let slidesPerView = getSlidesPerView();
+
+            // Create dots
+            const totalDots = Math.ceil(slides.length / slidesPerView);
+            for (let i = 0; i < totalDots; i++) {
+                const dot = document.createElement('button');
+                dot.classList.add('carousel-dot');
+                if (i === 0) dot.classList.add('active');
+                dot.addEventListener('click', () => goToSlide(i));
+                dotsContainer.appendChild(dot);
+            }
+
+            const dots = Array.from(dotsContainer.children);
+
+            // Calculate slides per view based on window width
+            function getSlidesPerView() {
+                const width = window.innerWidth;
+                if (width >= 1200) return 3;
+                if (width >= 768) return 2;
+                return 1;
+            }
+
+            // Update carousel position
+            function updateCarousel() {
+                const slideWidth = slides[0].getBoundingClientRect().width;
+                const gap = 30; // Gap between slides
+                const moveAmount = currentIndex * (slideWidth + gap) * slidesPerView;
+                track.style.transform = `translateX(-${moveAmount}px)`;
+
+                // Update dots
+                const currentDot = Math.floor(currentIndex);
+                dots.forEach((dot, index) => {
+                    dot.classList.toggle('active', index === currentDot);
+                });
+
+                // Update button states
+                prevButton.disabled = currentIndex === 0;
+                nextButton.disabled = currentIndex >= totalDots - 1;
+            }
+
+            // Go to specific slide
+            function goToSlide(index) {
+                currentIndex = index;
+                updateCarousel();
+            }
+
+            // Next button
+            nextButton.addEventListener('click', () => {
+                if (currentIndex < totalDots - 1) {
+                    currentIndex++;
+                    updateCarousel();
+                }
+            });
+
+            // Previous button
+            prevButton.addEventListener('click', () => {
+                if (currentIndex > 0) {
+                    currentIndex--;
+                    updateCarousel();
+                }
+            });
+
+            // Handle window resize
+            let resizeTimer;
+            window.addEventListener('resize', () => {
+                clearTimeout(resizeTimer);
+                resizeTimer = setTimeout(() => {
+                    const newSlidesPerView = getSlidesPerView();
+                    if (newSlidesPerView !== slidesPerView) {
+                        slidesPerView = newSlidesPerView;
+
+                        // Recalculate total dots
+                        const newTotalDots = Math.ceil(slides.length / slidesPerView);
+
+                        // Recreate dots if needed
+                        dotsContainer.innerHTML = '';
+                        for (let i = 0; i < newTotalDots; i++) {
+                            const dot = document.createElement('button');
+                            dot.classList.add('carousel-dot');
+                            if (i === 0) dot.classList.add('active');
+                            dot.addEventListener('click', () => goToSlide(i));
+                            dotsContainer.appendChild(dot);
+                        }
+
+                        // Reset to first slide
+                        currentIndex = 0;
+                        updateCarousel();
+                    }
+                }, 250);
+            });
+
+            // Initialize
+            updateCarousel();
+
+            // Keyboard navigation
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'ArrowLeft') {
+                    prevButton.click();
+                } else if (e.key === 'ArrowRight') {
+                    nextButton.click();
+                }
+            });
+
+            // Touch/Swipe support
+            let touchStartX = 0;
+            let touchEndX = 0;
+
+            track.addEventListener('touchstart', (e) => {
+                touchStartX = e.changedTouches[0].screenX;
+            }, { passive: true });
+
+            track.addEventListener('touchend', (e) => {
+                touchEndX = e.changedTouches[0].screenX;
+                handleSwipe();
+            }, { passive: true });
+
+            function handleSwipe() {
+                const swipeThreshold = 50;
+                const diff = touchStartX - touchEndX;
+
+                if (Math.abs(diff) > swipeThreshold) {
+                    if (diff > 0) {
+                        // Swipe left - next
+                        nextButton.click();
+                    } else {
+                        // Swipe right - previous
+                        prevButton.click();
+                    }
+                }
+            }
+        });
     </script>
+<script>
+  // --- Tic Tac Toe with AI + Winning Line Highlight ---
+  (function () {
+    const cells = document.querySelectorAll('#game-board .cell');
+    const boardElement = document.getElementById('game-board');
+    const statusText = document.getElementById('game-status');
+    const resetBtn = document.getElementById('reset-btn');
+
+    let board = Array(9).fill('');
+    let currentPlayer = 'X';
+    const aiPlayer = 'O';
+    const winPatterns = [
+      [0, 1, 2], [3, 4, 5], [6, 7, 8], // rows
+      [0, 3, 6], [1, 4, 7], [2, 5, 8], // columns
+      [0, 4, 8], [2, 4, 6]             // diagonals
+    ];
+
+    let winLine = null; // line element we'll create dynamically
+
+    // Create line overlay container
+    boardElement.style.position = 'relative';
+
+    function createLine(a, b, c) {
+      const first = cells[a].getBoundingClientRect();
+      const last = cells[c].getBoundingClientRect();
+      const boardRect = boardElement.getBoundingClientRect();
+
+      const x1 = first.left + first.width / 2 - boardRect.left;
+      const y1 = first.top + first.height / 2 - boardRect.top;
+      const x2 = last.left + last.width / 2 - boardRect.left;
+      const y2 = last.top + last.height / 2 - boardRect.top;
+
+      const length = Math.hypot(x2 - x1, y2 - y1);
+      const angle = Math.atan2(y2 - y1, x2 - x1) * (180 / Math.PI);
+
+      winLine = document.createElement('div');
+      winLine.style.position = 'absolute';
+      winLine.style.left = `${x1}px`;
+      winLine.style.top = `${y1}px`;
+      winLine.style.width = `${length}px`;
+      winLine.style.height = '5px';
+      winLine.style.background = '#4a9eff';
+      winLine.style.borderRadius = '4px';
+      winLine.style.transformOrigin = '0 50%';
+      winLine.style.transform = `rotate(${angle}deg)`;
+      winLine.style.transition = 'all 0.3s ease';
+      winLine.style.boxShadow = '0 0 10px #4a9eff';
+      boardElement.appendChild(winLine);
+    }
+
+    function checkWinner(b) {
+      for (const [a, bIdx, c] of winPatterns) {
+        if (b[a] && b[a] === b[bIdx] && b[a] === b[c]) {
+          highlightWin([a, bIdx, c]);
+          return b[a];
+        }
+      }
+      return b.includes('') ? null : 'Tie';
+    }
+
+    function highlightWin(indices) {
+      indices.forEach(i => {
+        cells[i].style.backgroundColor = '#4a9eff33';
+      });
+      createLine(...indices);
+    }
+
+    function aiMove() {
+      // Try to win or block
+      for (const [a, bIdx, c] of winPatterns) {
+        const line = [board[a], board[bIdx], board[c]];
+        if (line.filter(v => v === aiPlayer).length === 2 && line.includes(''))
+          return [a, bIdx, c][line.indexOf('')];
+        if (line.filter(v => v === currentPlayer).length === 2 && line.includes(''))
+          return [a, bIdx, c][line.indexOf('')];
+      }
+      const empty = board.map((v, i) => (v === '' ? i : null)).filter(v => v !== null);
+      return empty[Math.floor(Math.random() * empty.length)];
+    }
+
+    function handleClick(e) {
+      const idx = [...cells].indexOf(e.target);
+      if (board[idx] || checkWinner(board)) return;
+
+      board[idx] = currentPlayer;
+      e.target.textContent = currentPlayer;
+      e.target.style.color = '#4a9eff';
+
+      const winner = checkWinner(board);
+      if (winner) return endGame(winner);
+
+      statusText.textContent = "Computer's Turn...";
+      setTimeout(() => {
+        const aiIdx = aiMove();
+        if (aiIdx !== undefined && board[aiIdx] === '') {
+          board[aiIdx] = aiPlayer;
+          cells[aiIdx].textContent = aiPlayer;
+          cells[aiIdx].style.color = '#ffd700';
+        }
+
+        const result = checkWinner(board);
+        if (result) return endGame(result);
+
+        statusText.textContent = "Your Turn (X)";
+      }, 500);
+    }
+
+    function endGame(winner) {
+      if (winner === 'Tie') {
+        statusText.textContent = "🤝 It's a Tie!";
+      } else if (winner === currentPlayer) {
+        statusText.textContent = "🎉 You Win!";
+      } else {
+        statusText.textContent = "💻 Computer Wins!";
+      }
+    }
+
+    function resetGame() {
+      board.fill('');
+      cells.forEach(c => {
+        c.textContent = '';
+        c.style.backgroundColor = '#2d3748';
+      });
+      if (winLine) {
+        winLine.remove();
+        winLine = null;
+      }
+      statusText.textContent = "Your Turn (X)";
+    }
+
+    // Style cells
+    cells.forEach(c => {
+      c.addEventListener('click', handleClick);
+      Object.assign(c.style, {
+        height: '100px',
+        fontSize: '36px',
+        backgroundColor: '#2d3748',
+        border: '2px solid #4a9eff',
+        borderRadius: '10px',
+        cursor: 'pointer',
+        color: '#4a9eff',
+        transition: 'background 0.3s'
+      });
+      c.addEventListener('mouseover', () => c.style.backgroundColor = '#374151');
+      c.addEventListener('mouseout', () => {
+        if (!c.textContent) c.style.backgroundColor = '#2d3748';
+      });
+    });
+
+    resetBtn.addEventListener('click', resetGame);
+  })();
+</script>
 </body>
+
 </html>
