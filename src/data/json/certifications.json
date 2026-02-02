@@ -1,0 +1,41 @@
+[
+  {
+    "id": "cert-1",
+    "name": "OSHA Outreach for the Construction Industry",
+    "issuer": "OSHA Education Center",
+    "date": "August 2025",
+    "credentialId": "20-0107970",
+    "credentialUrl": ""
+  }, {
+    "id": "cert-2",
+    "name": "LEED Green Associate (LEED GA)",
+    "issuer": "Green Business Certification Inc.",
+    "date": "November 2025",
+    "credentialId": "11700738-GREEN-ASSOCIATE",
+    "credentialUrl": ""
+  },
+  {
+    "id": "cert-3",
+    "name": "Procore Certified: Student",
+    "issuer": "Procore Technologies",
+    "date": "June 2025",
+    "credentialId": "nayjmtrtgw65",
+    "credentialUrl": "https://verify.skilljar.com/c/nayjmtrtgw65"
+  },
+  {
+    "id": "cert-4",
+    "name": "Revit Families:- From Beginners to Pro",
+    "issuer": "Udemy",
+    "date": "December 2023",
+    "credentialId": "UC-9a4527c4-6720-4180-9c42-777d9ab7223",
+    "credentialUrl": "ude.my/Uc-9a4527 c4-d720-4180-9c42-7717d9ab7223"
+  },
+  {
+    "id": "cert-5",
+    "name": "Revit Families:- From Beginners to Pro",
+    "issuer": "Udemy",
+    "date": "December 2023",
+    "credentialId": "UC-9a4527c4-6720-4180-9c42-777d9ab7223",
+    "credentialUrl": "ude.my/Uc-9a4527 c4-d720-4180-9c42-7717d9ab7223"
+  }
+]

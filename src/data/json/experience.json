@@ -1,0 +1,59 @@
+[
+  {
+    "id": "exp-1",
+    "role": "BIM Modeler",
+    "company": "UniquesCadd",
+    "location": "Ahmedabad, India",
+    "period": "August 2022 - July 2024",
+    "description": [
+      "Delivered 500+ Revit BIM models, accelerating design-to-construction kickoff by 30%.",
+      "Resolved 95% of clashes pre-construction through coordinated BIM execution.",
+      "Standardized workflows with a 100+ Revit family library, cutting modeling time by 25%.",
+      "Streamlined RFI and QA/QC processes to reduce coordination delays.",
+      "Led BIM adoption on 5 pilot projects, scaling 3 to full implementation.",
+      "Drove cross-team coordination to maintain accuracy and on-time delivery"
+    ],
+    "technologies": [
+      "Autodesk Revit",
+      "Solibri Office",
+      "Navisworks",
+      "AutoCAD",
+      "Bluebeam",
+      "Procore",
+      "Microsoft Office Suite",
+      "QA/QC",
+      "RFI Management",
+      "BIM Execution Planning",
+      "Stakeholder Communication"
+    ]
+  },
+  {
+    "id": "exp-2",
+    "role": "Field Engineer",
+    "company": "Sanidhya Developers",
+    "location": "Gandhinagar, India",
+    "period": "May 2021 - June 2022",
+    "description": [
+      "Coordinated subcontractors and site logistics to maintain 98% schedule adherence on a 14-story residential project",
+      "Resolved on-site coordination issues with consultants and vendors, preventing schedule delays and rework.",
+      "Implemented daily planning and reporting that improved task sequencing and field productivity.",
+      "Enforced safety planning and compliance for 70+ workers, sustaining incident-free operations.",
+      "Optimized material tracking and reuse strategies, reducing material waste by 20%.",
+      "Assisted in preparing subcontractor bills and payment certificates, ensuring accuracy and timely disbursements",
+      "Delivered common amenities like gym, pool, clubhouse within budget and schedule, improving stakeholder satisfaction."
+    ],
+    "technologies": [
+      "QA/QC",
+      "Field Testing Coordination",
+      "Concrete & Earthwork Inspection",
+      "RFI Management",
+      "Stakeholder Communication",
+      "Scope Development",
+      "Project Lifecycle Management",
+      "Risk Analysis",
+      "Estimating",
+      "Scheduling",
+      "Microsoft Office Suite"
+    ]
+  }
+]

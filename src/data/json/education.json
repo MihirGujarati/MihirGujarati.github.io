@@ -1,0 +1,45 @@
+[
+  {
+    "id": "edu-1",
+    "degree": "Master of Science in Construction Management and Technology",
+    "institution": "Arizona State University",
+    "location": "Tempe, AZ",
+    "period": "August 2024 - May 2026",
+    "description": "Specialized in Construction Management and Technology with a focus on emerging tools such as Artificial Intelligence, drone applications, and information technology for the built environment. My coursework at Arizona State University emphasizes advanced project delivery methods, heavy construction management, estimating, and scheduling equipping me to integrate innovation and efficiency into complex construction projects.",
+    "achievements": [
+      "GPA: 4.0/4.0"
+    ],
+    "courses": [
+      "Retrofit Construction",
+      "Construction Project Management",
+      "Project Management Principles",
+      "Project Delivery Methods",
+      "Heavy Construction Estimating & Scheduling",
+      "Heavy Construction Project Management",
+      "Information Technology in Construction",
+      "Artificial Intelligence in Construction",
+      "Drone Technology for the Built Environment"
+    ]
+  },
+  {
+    "id": "edu-2",
+    "degree": "Bachelor of Science in Civil Engineering",
+    "institution": "Silver Oak College of Engineering and Technology (Affiliated to Gujarat Technological University)",
+    "location": "Ahmedabad, Gujarat",
+    "period": "August 2016 - May 2020",
+    "description": "Specialized in Civil Engineering with a focus on structural design, infrastructure development, and sustainable construction practices. My undergraduate coursework at SOCET emphasized core civil engineering principles, materials science, geotechnical analysis, and transportation engineering, equipping me with a strong foundation to design and manage resilient and efficient infrastructure projects.",
+    "achievements": [
+      "GPA: 3.2/4.0"
+    ],
+    "courses": [
+      "Structural Analysis & Design",
+      "Construction Materials Testing",
+      "Geotechnical Engineering",
+      "Transportation & Highway Engineering",
+      "Project Planning & Site Supervision",
+      "Environmental & Sustainability Assessment",
+      "Surveying & Site Layout",
+      "Fluid Mechanics"
+    ]
+  }
+]

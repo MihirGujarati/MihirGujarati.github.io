@@ -1,0 +1,92 @@
+[
+  {
+    "id": "ach-1",
+    "title": "OSHA 10 Outreach for the Construction Industry",
+    "organization": "OSHA Education Center",
+    "date": "Aug 2025",
+    "description": "Trained under OSHA Outreach Program for Construction, focusing on workplace safety standards and compliance.",
+    "icon": "certificate",
+    "url": ""
+  },
+  {
+    "id": "cert-2",
+    "title": "LEED Green Associate (LEED GA)",
+    "organization": "Green Business Certification Inc.",
+    "date": "November 2025",
+    "description": "Certified LEED Green Associate with training in sustainable building practices and LEED standards",
+    "icon": "certificate",
+    "url": ""
+  },
+  {
+    "id": "ach-2",
+    "title": "Procore Certified: Student",
+    "organization": "Procore Technologies",
+    "date": "June 2025",
+    "description": "Certified in Procore (Student) with skills in construction project management and digital collaboration tools.",
+    "icon": "certificate",
+    "url": "https://verify.skilljar.com/c/nayjmtrtgw65"
+  },
+  {
+    "id": "ach-3",
+    "title": "Microsoft Excel for Construction Management",
+    "organization": "Udemy",
+    "date": "Aug 2025",
+    "description": "Microsoft Excel for Construction Management — applied Excel tools for efficient project planning and resource management.",
+    "icon": "certificate",
+    "url": ""
+  },
+  {
+    "id": "ach-4",
+    "title": "Generative AI Overview for Project Managers ",
+    "organization": "Project Management Institute",
+    "date": "Sep 2024",
+    "description": "Certified in Generative AI Overview for Project Managers with focus on AI applications in productivity and decision-making.",
+    "icon": "medal",
+    "url": ""
+  },
+  {
+    "id": "ach-5",
+    "title": "Revit Families:- From Beginners to Pro",
+    "organization": "Udemy",
+    "date": "Dec 2023",
+    "description": "Revit Families: From Beginners to Pro — proficient in building intelligent, parametric content for advanced BIM workflows.",
+    "icon": "certificate",
+    "url": ""
+  },
+  {
+    "id": "ach-6",
+    "title": "Quantity Survey Estimation and Costing ",
+    "organization": "EmaxIndia",
+    "date": "Sep 2021",
+    "description": "Certified in Quantity Survey Estimation and Costing — skilled in material takeoffs, cost analysis, and budget preparation.",
+    "icon": "certificate",
+    "url": ""
+  },
+  {
+    "id": "ach-7",
+    "title": "Autodesk AutoCAD User Certification",
+    "organization": "CDAC GIST",
+    "date": "Dec 2020",
+    "description": "Autodesk AutoCAD Certified User — proficient in 2D drafting, technical drawings, and design documentation.",
+    "icon": "certificate",
+    "url": ""
+  },
+  {
+    "id": "ach-8",
+    "title": "The Complete Revit Course",
+    "organization": "Udemy",
+    "date": "Sep 2020",
+    "description": "Trained in The Complete Revit Course with skills in 3D modeling, parametric design, and construction documentation",
+    "icon": "certificate",
+    "url": ""
+  },
+  {
+    "id": "ach-9",
+    "title": "Community Mentor Award",
+    "organization": "Local Coding Bootcamp",
+    "date": "August 2021",
+    "description": "Recognized for exceptional mentorship provided to junior developers, helping them transition successfully into tech careers.",
+    "icon": "trophy",
+    "url": ""
+  }
+]
