@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <!-- SEO-friendly meta description -->
+    <meta name="description" content="A professional construction management portfolio showcasing my projects and skills" />
+    <link rel="icon" type="image/png" href="/profileimage.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Title appears in browser tab and search results -->
+    <title>Portfolio | Mihir Gujarati</title>
+    <!-- Additional meta tags for SEO -->
+    <meta name="keywords" content="construction management, portfolio, construction projects, project estimation" />
+    <meta name="author" content="Mihir Gujarati" />
+    <!-- Open Graph tags for social media sharing -->
+    <meta property="og:title" content="Construction Management Portfolio" />
+    <meta property="og:description" content="Showcasing my construction management projects and skills" />
+    <!-- Handle redirects for GitHub Pages SPA -->
+    <script>
+      (function() {
+        // Redirect for GitHub Pages SPA
+        if (sessionStorage.redirect) {
+          const redirect = sessionStorage.redirect;
+          delete sessionStorage.redirect;
+          if (redirect && redirect !== location.href) {
+            history.replaceState(null, null, redirect);
+          }
+        }
+      })();
+    </script>
+    <script type="module" crossorigin src="/assets/index-DIOJ5M9K.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-D3aaIR5c.css">
+  </head>
+  <body>
+    <!-- Main container for React application -->
+    <div id="root"></div>
+    <!-- Entry point script for the React application -->
+  </body>
+</html>
