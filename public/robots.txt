@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://yourusername.github.io/Portfolio/sitemap.xml
+Sitemap: https://MihirGujarati.github.io/sitemap.xml

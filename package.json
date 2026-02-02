@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.1.0",
   "type": "module",
-  "homepage": "https://mihirgujarati.github.io/Portfolio",
+  "homepage": "https://mihirgujarati.github.io",
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
