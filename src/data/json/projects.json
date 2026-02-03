@@ -48,7 +48,7 @@
     "id": "project-6",
     "title": "Autodesk Revit Modeling Project",
     "description": "I have showcased a selection of my Revit Architecture projects demonstrating proficiency in BIM modeling, custom family creation, sheet setup, and quantity scheduling. These projects also highlight my rendering and visualization skills.",
-    "technologies": ["JavaScript", "HTML/CSS", "OpenWeather API"],
+    "technologies": ["Autodesk Revit", "Custom Families", "Sheet Setup", "Quantity Scheduling", "Enscape", "Rendering", "Visualization"],
     "imageUrl": "/rvt.jpg",
     "demoUrl": "https://weather.example.com",
     "sourceUrl": "https://github.com/yourusername/weather-app"
