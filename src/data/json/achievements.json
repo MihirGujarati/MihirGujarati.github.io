@@ -78,15 +78,15 @@
     "date": "Sep 2020",
     "description": "Trained in The Complete Revit Course with skills in 3D modeling, parametric design, and construction documentation",
     "icon": "certificate",
-    "url": ""
+    "url": "https://www.udemy.com/certificate/UC-905a4f3d-689f-423f-ab45-ffa41b053e72/"
   },
   {
     "id": "ach-9",
-    "title": "Community Mentor Award",
-    "organization": "Local Coding Bootcamp",
-    "date": "August 2021",
-    "description": "Recognized for exceptional mentorship provided to junior developers, helping them transition successfully into tech careers.",
-    "icon": "trophy",
+    "title": "Quantity Survey Estimation and Costing ",
+    "organization": "EmaxIndia",
+    "date": "Sep 2021",
+    "description": "I successfully completed a skill-based training program under the Skill India initiative, gaining practical knowledge in quantity surveying, cost-based estimation, billing, and tendering.",
+    "icon": "certificate",
     "url": ""
   }
 ]
