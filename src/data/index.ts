@@ -50,7 +50,7 @@ const iconMapping = {
 type IconName = keyof typeof iconMapping;
 
 // Define a type for valid skill categories based on Skill type
-type SkillCategory = "frontend" | "tools" | "backend" | "other";
+type SkillCategory = "tools";
 
 // Social media links
 export const socials: Social[] = socialsData.map(social => ({
