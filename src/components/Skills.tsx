@@ -58,10 +58,12 @@ const Skills: React.FC = () => {  // State to control whether the carousel anima
   // Define different border colors based on skill category
   // This creates visual distinction between different types of skills
   const categoryColors = {
-    frontend: 'border-blue-400',
-    backend: 'border-green-400',
+    "VDC/BIM": 'border-blue-400',
+    cms: 'border-green-400',
     tools: 'border-yellow-400',
-    other: 'border-purple-400'
+    schedule: 'border-purple-400',
+    rendering: 'border-pink-400',
+    other: 'border-gray-400',
   };
 
   return (
@@ -105,8 +107,8 @@ const Skills: React.FC = () => {  // State to control whether the carousel anima
               {/* First set of skills for continuous scrolling effect */}
               {allSkills.map((skill, index) => (
                 <div key={`skill-1-${index}`} className="flex flex-col items-center mx-5 relative group">
-                  <div className={`w-[60px] h-[60px] rounded-full dark:bg-gray-800 bg-white flex items-center justify-center text-2xl text-blue-500 dark:text-blue-400 transition-all duration-300 border-2 ${categoryColors[skill.category] || 'border-gray-400'} group-hover:-translate-y-2 group-hover:shadow-lg`}>
-                    <skill.icon />
+                  <div className={`w-[172px] h-[60px] rounded-full dark:bg-gray-800 bg-white flex items-center justify-center text-blue-500 dark:text-blue-400 transition-all duration-300 border-2 ${categoryColors[skill.category] || 'border-gray-400'} group-hover:-translate-y-2 group-hover:shadow-lg`}>
+                    {skill.name}
                   </div>
                   <span className="text-sm opacity-0 absolute top-full whitespace-nowrap transition-opacity duration-200 dark:text-white text-gray-900 dark:bg-opacity-90 bg-opacity-90 px-2 py-0.5 rounded pointer-events-none group-hover:opacity-100">
                     {skill.name}
@@ -116,8 +118,8 @@ const Skills: React.FC = () => {  // State to control whether the carousel anima
               {/* Second set of identical skills to create the infinite scrolling effect */}
               {allSkills.map((skill, index) => (
                 <div key={`skill-2-${index}`} className="flex flex-col items-center mx-5 relative group">
-                  <div className={`w-[60px] h-[60px] rounded-full dark:bg-gray-800 bg-white flex items-center justify-center text-2xl text-blue-500 dark:text-blue-400 transition-all duration-300 border-2 ${categoryColors[skill.category] || 'border-gray-400'} group-hover:-translate-y-2 group-hover:shadow-lg`}>
-                    <skill.icon />
+                  <div className={`w-[172px] h-[60px] rounded-full dark:bg-gray-800 bg-white flex items-center justify-center text-blue-500 dark:text-blue-400 transition-all duration-300 border-2 ${categoryColors[skill.category] || 'border-gray-400'} group-hover:-translate-y-2 group-hover:shadow-lg`}>
+                    {skill.name}
                   </div>
                   <span className="text-sm opacity-0 absolute top-full whitespace-nowrap transition-opacity duration-200 dark:text-white text-gray-900 dark:bg-opacity-90 bg-opacity-90 px-2 py-0.5 rounded pointer-events-none group-hover:opacity-100">
                     {skill.name}

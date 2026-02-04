@@ -130,7 +130,7 @@ const Achievements: React.FC = () => {
                 onClick={() => handleCelebration(achievement.id)}
                 viewport={{ once: true, margin: "-50px" }}
                 variants={cardVariants}
-                className={`bg-gradient-to-br from-gray-100 to-white dark:from-gray-700 dark:to-gray-900 ${getCardStyle(achievement.icon)} rounded-lg overflow-hidden shadow-lg border-2 h-full flex flex-col transform transition-all cursor-pointer relative`}
+                className={`bg-gradient-to-br from-gray-100 to-white dark:from-gray-700 dark:to-gray-900 ${getCardStyle(achievement.icon)} rounded-lg overflow-hidden shadow-lg border-2 h-full flex flex-col transform transition-all relative`}
               >
                 {celebrating === achievement.id && (
                   <div className="absolute inset-0 pointer-events-none overflow-hidden z-10">

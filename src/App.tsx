@@ -15,7 +15,7 @@ import CustomCursor from './components/CustomCursor'
 function App() {
   return (
     <ThemeProvider>
-      <CustomCursor />
+      {/* <CustomCursor /> */}
       <div className="min-h-screen bg-white text-gray-800 dark:bg-gray-900 dark:text-white transition-colors duration-300">
         <Navbar />
         <main>

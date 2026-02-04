@@ -293,7 +293,7 @@ const Contact: React.FC = () => {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className={`px-6 py-3 bg-blue-400 dark:bg-blue-500 hover:bg-blue-600 text-white font-semibold rounded-md transition-colors w-full flex items-center justify-center ${isSubmitting ? 'opacity-70 cursor-not-allowed' : ''}`}
+                className={`px-6 py-3 bg-blue-400 dark:bg-blue-500 hover:bg-blue-600 text-white font-semibold rounded-md transition-colors w-full flex items-center justify-center ${isSubmitting ? 'opacity-70' : ''}`}
               >
                 {/* Show spinner during submission */}
                 {isSubmitting ? (

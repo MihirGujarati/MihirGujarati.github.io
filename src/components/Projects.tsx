@@ -15,7 +15,7 @@ interface ProjectCardProps {
 const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
   return (
     <motion.div
-      className="bg-gradient-to-br from-white to-gray-100 dark:from-gray-800 dark:to-gray-700 rounded-lg overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 border border-gray-300 dark:border-gray-600 hover:border-blue-500/30"
+      className="bg-gradient-to-br from-white to-gray-100 dark:from-gray-800 dark:to-gray-700 rounded-lg overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 border border-gray-300 dark:border-gray-600 hover:border-blue-500/30 flex flex-col"
       custom={index} // Pass index to animation variants for staggered effect
       initial="hidden"
       whileInView="visible"
@@ -42,10 +42,10 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
         />
         <div className="absolute inset-0 bg-gradient-to-t from-gray-900/80 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300"></div>
       </div>
-      <div className="p-6 border-t border-gray-300/50 dark:border-gray-600/50">
+      <div className="p-6 border-t border-gray-300/50 dark:border-gray-600/50 flex flex-col flex-1">
         {/* Project title and description */}
-        <h3 className="text-xl font-bold mb-2 text-gray-900 dark:text-white">{project.title}</h3>
-        <p className="text-gray-700 dark:text-gray-300 mb-4 line-clamp-4">{project.description}</p>
+        <h3 className="h-20 text-lg font-bold mb-2 text-gray-900 dark:text-white">{project.title}</h3>
+        <p className="flex-1 text-gray-700 dark:text-gray-300 mb-4 overflow-y-auto">{project.description}</p>
         {/* Technologies used in the project */}
         <div className="flex flex-wrap gap-2 mb-5">
           {project.technologies.map(tech => (
@@ -58,18 +58,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
           ))}
         </div>
         {/* External links to source code and live demo */}
-        <div className="flex gap-4 pt-2 border-t border-gray-300/30 dark:border-gray-600/30">
-          {/* Conditional rendering for GitHub link if available */}
-          {project.sourceUrl && (
-            <a
-              href={project.sourceUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-2 text-gray-700 dark:text-gray-300 hover:text-blue-400 transition-colors py-1 px-2 hover:bg-gray-200/50 dark:hover:bg-gray-800/50 rounded"
-            >
-              <FaGithub className="text-lg" /> <span>Code</span>
-            </a>
-          )}
+        <div className="gap-4 pt-2 border-t border-gray-300/30 dark:border-gray-600/30">
           {/* Conditional rendering for demo link if available */}
           {project.demoUrl && (
             <a
@@ -78,7 +67,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
               rel="noopener noreferrer"
               className="flex items-center gap-2 text-gray-700 dark:text-gray-300 hover:text-blue-400 transition-colors py-1 px-2 hover:bg-gray-200/50 dark:hover:bg-gray-800/50 rounded"
             >
-              <FaExternalLinkAlt className="text-lg" /> <span>Live Demo</span>
+              <FaExternalLinkAlt className="text-lg" /> <span>Source</span>
             </a>
           )}
         </div>

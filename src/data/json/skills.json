@@ -1,63 +1,69 @@
 [
   {
-    "name": "HTML5",
+    "name": "Autodesk Revit",
     "iconName": "SiHtml5",
     "level": 5,
-    "category": "frontend"
+    "category": "VDC/BIM"
   },
   {
-    "name": "CSS3",
+    "name": "Navisworks",
     "iconName": "SiCss3",
     "level": 5,
-    "category": "frontend"
+    "category": "VDC/BIM"
   },
   {
-    "name": "JavaScript",
+    "name": "Solibri Office",
     "iconName": "SiJavascript",
     "level": 5,
-    "category": "frontend"
+    "category": "VDC/BIM"
   },
   {
-    "name": "TypeScript",
+    "name": "Autodesk AutoCAD",
     "iconName": "SiTypescript",
     "level": 4,
-    "category": "frontend"
+    "category": "VDC/BIM"
   },
   {
-    "name": "React",
+    "name": "Recap Pro",
     "iconName": "SiReact",
     "level": 4,
-    "category": "frontend"
+    "category": "VDC/BIM"
   },
   {
-    "name": "Tailwind CSS",
+    "name": "InEight Estimate",
     "iconName": "SiTailwindcss",
     "level": 4,
-    "category": "frontend"
+    "category": "cms"
   },
   {
+    "name": "BlueBeam Revu",
+    "iconName": "SiNodedotjs",
+    "level": 4,
+    "category": "cms"
+  },
+  {
+    "name": "Procore",
+    "iconName": "SiExpress",
+    "level": 4,
+    "category": "cms"
+  },
+  {
+    "name": "Enscape",
+    "iconName": "SiMongodb",
+    "level": 5,
+    "category": "rendering"
+  },
+   {
+    "name": "Twinmotion",
+    "iconName": "SiMongodb",
+    "level": 5,
+    "category": "rendering"
+  },
+    {
     "name": "Vite",
     "iconName": "SiVite",
     "level": 3,
     "category": "tools"
-  },
-  {
-    "name": "Node.js",
-    "iconName": "SiNodedotjs",
-    "level": 4,
-    "category": "backend"
-  },
-  {
-    "name": "Express",
-    "iconName": "SiExpress",
-    "level": 4,
-    "category": "backend"
-  },
-  {
-    "name": "MongoDB",
-    "iconName": "SiMongodb",
-    "level": 3,
-    "category": "backend"
   },
   {
     "name": "Git",
@@ -66,9 +72,10 @@
     "category": "tools"
   },
   {
-    "name": "Docker",
+    "name": "Microsoft Office Suite",
     "iconName": "SiDocker",
-    "level": 3,
+    "level": 5,
     "category": "tools"
   }
+  
 ]
