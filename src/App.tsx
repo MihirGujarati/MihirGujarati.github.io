@@ -10,7 +10,6 @@ import Contact from './components/Contact'
 import Footer from './components/Footer'
 import { ThemeProvider } from './context/ThemeProvider'
 import './App.css'
-import CustomCursor from './components/CustomCursor'
 
 function App() {
   return (

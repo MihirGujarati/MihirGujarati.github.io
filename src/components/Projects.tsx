@@ -1,5 +1,5 @@
 import React from 'react';
-import { FaGithub, FaExternalLinkAlt } from 'react-icons/fa';
+import { FaExternalLinkAlt } from 'react-icons/fa';
 import { motion } from 'framer-motion';
 import { projects } from '../data';
 import type { Project as ProjectType } from '../types';

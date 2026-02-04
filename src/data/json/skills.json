@@ -3,61 +3,61 @@
     "name": "Autodesk Revit",
     "iconName": "SiHtml5",
     "level": 5,
-    "category": "VDC/BIM"
+    "category": "tools"
   },
   {
     "name": "Navisworks",
     "iconName": "SiCss3",
     "level": 5,
-    "category": "VDC/BIM"
+    "category": "tools"
   },
   {
     "name": "Solibri Office",
     "iconName": "SiJavascript",
     "level": 5,
-    "category": "VDC/BIM"
+    "category": "tools"
   },
   {
     "name": "Autodesk AutoCAD",
     "iconName": "SiTypescript",
     "level": 4,
-    "category": "VDC/BIM"
+    "category": "tools"
   },
   {
     "name": "Recap Pro",
     "iconName": "SiReact",
     "level": 4,
-    "category": "VDC/BIM"
+    "category": "tools"
   },
   {
     "name": "InEight Estimate",
     "iconName": "SiTailwindcss",
     "level": 4,
-    "category": "cms"
+    "category": "tools"
   },
   {
     "name": "BlueBeam Revu",
     "iconName": "SiNodedotjs",
     "level": 4,
-    "category": "cms"
+    "category": "tools"
   },
   {
     "name": "Procore",
     "iconName": "SiExpress",
     "level": 4,
-    "category": "cms"
+    "category": "tools"
   },
   {
     "name": "Enscape",
     "iconName": "SiMongodb",
     "level": 5,
-    "category": "rendering"
+    "category": "tools"
   },
    {
     "name": "Twinmotion",
     "iconName": "SiMongodb",
     "level": 5,
-    "category": "rendering"
+    "category": "tools"
   },
     {
     "name": "Vite",

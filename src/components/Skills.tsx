@@ -58,12 +58,7 @@ const Skills: React.FC = () => {  // State to control whether the carousel anima
   // Define different border colors based on skill category
   // This creates visual distinction between different types of skills
   const categoryColors = {
-    "VDC/BIM": 'border-blue-400',
-    cms: 'border-green-400',
     tools: 'border-yellow-400',
-    schedule: 'border-purple-400',
-    rendering: 'border-pink-400',
-    other: 'border-gray-400',
   };
 
   return (

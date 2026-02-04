@@ -40,7 +40,7 @@ export interface Skill {
   name: string;
   icon: IconType;
   level: number; // 1-5
-  category: 'VDC/BIM' | 'cms' | 'estimate' | 'schedule' | 'rendering' | 'other';
+  category: 'tools';
 }
 
 export interface ExperienceItem {
