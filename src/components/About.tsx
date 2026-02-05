@@ -49,10 +49,6 @@ const About: React.FC = () => {
                 <div className="flex items-center gap-2 px-4 py-2 bg-gray-200 dark:bg-gray-700 rounded-full">
                   <span className="text-blue-500 dark:text-blue-400">📍</span> {personalInfo.location}
                 </div>
-                {/* Availability badge */}
-                <div className="flex items-center gap-2 px-4 py-2 bg-gray-200 dark:bg-gray-700 rounded-full">
-                  <span className="text-blue-500 dark:text-blue-400">💼</span> Available for freelance
-                </div>
               </div>
             </div>
           </div>
