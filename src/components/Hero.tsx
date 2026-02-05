@@ -12,9 +12,9 @@ const Hero: React.FC = () => {
   useEffect(() => {
     const strings = [
       personalInfo.title,
-      'Graduate Student at ASU',
-      'BIM and Project Coordination',
-      "Aspiring Construction Technologist"
+      'Technology-focused Construction Project Engineer',
+      'From design coordination to field execution',
+      "Project Management • VDC • Construction Engineering"
     ];
 
     const typed = new Typed('#typed', {

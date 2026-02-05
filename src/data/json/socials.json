@@ -8,10 +8,5 @@
     "name": "LinkedIn",
     "url": "https://linkedin.com/in/yourusername",
     "iconName": "FaLinkedin"
-  },
-  {
-    "name": "Twitter",
-    "url": "https://twitter.com/yourusername",
-    "iconName": "FaTwitter"
   }
 ]
