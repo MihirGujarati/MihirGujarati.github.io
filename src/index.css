@@ -24,7 +24,7 @@
   /* html,
   body,
   * {
-    cursor: url("/cursors/bulldozer-up.svg") 16 16, auto !important;
+    cursor: url("/bulldozer-up.svg") 16 16, auto !important;
   }
 
   a:hover,
@@ -35,13 +35,13 @@
   button *,
   [role="button"] *,
   [data-cursor="pointer"] * {
-    cursor: url("/cursors/bulldozer-down.svg") 16 16, pointer !important;
+    cursor: url("/bulldozer-down.svg") 16 16, pointer !important;
   }
 
   .dark html,
   .dark body,
   .dark * {
-    cursor: url("/cursors/bulldozer-up-dark.svg") 16 16, auto !important;
+    cursor: url("/bulldozer-up-dark.svg") 16 16, auto !important;
   }
 
   .dark a:hover,
@@ -52,7 +52,7 @@
   .dark button *,
   .dark [role="button"] *,
   .dark [data-cursor="pointer"] * {
-    cursor: url("/cursors/bulldozer-down-dark.svg") 16 16, pointer !important;
+    cursor: url("/bulldozer-down-dark.svg") 16 16, pointer !important;
   }
  */
 }

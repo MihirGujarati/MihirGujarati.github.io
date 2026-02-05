@@ -5,8 +5,8 @@
     "description": "Prepared a complete $7.1M ADOT-compliant bridge bid including quantity takeoffs, subcontractor analysis, risk contingencies, bonding, and InEight-based estimate documentation.",
     "technologies": ["Project Estimation", "Bluebeam","Risk Assessment", "Bid Processes", "Cost managent", "Resourece Allocation", "InEight"],
     "imageUrl": "/Bridge.jpg",
-    "demoUrl": "https://demo-ecommerce.example.com",
-    "sourceUrl": "https://github.com/yourusername/ecommerce-platform"
+    "demoUrl": "https://drive.google.com/drive/u/2/folders/1OdyBZKyy4VWPRUXZFT-NIPo6N6Nt5Ywc",
+    "sourceUrl": "https://drive.google.com/drive/u/2/folders/1OdyBZKyy4VWPRUXZFT-NIPo6N6Nt5Ywc"
   },
   {
     "id": "project-2",
@@ -14,8 +14,8 @@
     "description": "Evaluated retrofit options for a 254,000 ft² occupied facility by assessing existing systems and developing phased scopes, cost estimates, and feasibility-based recommendations.",
     "technologies": ["Building Systems Assessment", "Retrofit Planning", "Design Development", "Cost Estimation", "Feasibility Analysis"],
     "imageUrl": "/mu.jpg",
-    "demoUrl": "https://tasks-app.example.com",
-    "sourceUrl": "https://github.com/yourusername/task-manager"
+    "demoUrl": "https://drive.google.com/drive/u/2/folders/1sHKA7-wwAE3qmMrlupuXgivS-w3_wMCF",
+    "sourceUrl": "https://drive.google.com/drive/u/2/folders/1sHKA7-wwAE3qmMrlupuXgivS-w3_wMCF"
   },
   {
     "id": "project-3",
@@ -23,8 +23,8 @@
     "description": "Analyzed field productivity on a 15-story high-rise using work sampling and MPDM to optimize site logistics, safety planning, and crew efficiency.",
     "technologies": ["Work Sampling", "MPDM", "Field Productivity Analysis"," Contingency Planning", "CPM Scheduling", "Construction Operations", " Lean Six Sigma"],
     "imageUrl": "/verve.jpg",
-    "demoUrl": "https://weather.example.com",
-    "sourceUrl": "https://github.com/yourusername/weather-app"
+    "demoUrl": "https://drive.google.com/drive/u/2/folders/1zN-mvD5aSXkCUXao1F4N4QYM6Vv-9qys",
+    "sourceUrl": "https://drive.google.com/drive/u/2/folders/1zN-mvD5aSXkCUXao1F4N4QYM6Vv-9qys"
   },
   {
     "id": "project-4",
@@ -32,8 +32,8 @@
     "description": "This project demonstrates the use of drone technology to capture aerial site data and analyze construction progress, site logistics, safety conditions, and earthwork status through time-lapse and annotated video outputs",
     "technologies": ["Drone Technology", "Aerial Data Capture", "Site Analysis", "Time-lapse Video", "Annotated Outputs", "Drone deploy"],
     "imageUrl": "/drone.jpg",
-    "demoUrl": "https://weather.example.com",
-    "sourceUrl": "https://github.com/yourusername/weather-app"
+    "demoUrl": "https://drive.google.com/drive/u/2/folders/1t-KIb3RHui8F9fBrA6G3aiwKo1zJUlx1",
+    "sourceUrl": "https://drive.google.com/drive/u/2/folders/1t-KIb3RHui8F9fBrA6G3aiwKo1zJUlx1"
   },
   {
     "id": "project-5",
@@ -41,8 +41,8 @@
     "description": "Built an AI-enhanced dashboard that summarizes work orders, enriches records with weather data, visualizes KPIs and an interactive map, and automatically emails periodic summary reports.",
     "technologies": ["AI/ML", "Predictive Analytics", "OpenWeatherMap API", "Data Visualization", "Machine Learning","HTML / CSS"],
     "imageUrl": "/ai.jpg",
-    "demoUrl": "https://weather.example.com",
-    "sourceUrl": "https://github.com/yourusername/weather-app"
+    "demoUrl": "https://drive.google.com/drive/u/2/folders/1vYORTtK6AA9L1e5vVxXVRYojcs6UTW7L",
+    "sourceUrl": "https://drive.google.com/drive/u/2/folders/1vYORTtK6AA9L1e5vVxXVRYojcs6UTW7L"
   },
   {
     "id": "project-6",
@@ -50,7 +50,7 @@
     "description": "I have showcased a selection of my Revit Architecture projects demonstrating proficiency in BIM modeling, custom family creation, sheet setup, and quantity scheduling. These projects also highlight my rendering and visualization skills.",
     "technologies": ["Autodesk Revit", "Custom Families", "Sheet Setup", "Quantity Scheduling", "Enscape", "Rendering", "Visualization"],
     "imageUrl": "/rvt.jpg",
-    "demoUrl": "https://weather.example.com",
-    "sourceUrl": "https://github.com/yourusername/weather-app"
+    "demoUrl": "https://drive.google.com/drive/u/2/folders/1Qtq-X6-n9vPvjvHjBPboFltggPteaNvv",
+    "sourceUrl": "https://drive.google.com/drive/u/2/folders/1Qtq-X6-n9vPvjvHjBPboFltggPteaNvv"
   }
 ]
