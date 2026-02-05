@@ -21,13 +21,12 @@
      =============================== */
 
   /* Light mode cursors */
-  html,
+  /* html,
   body,
   * {
     cursor: url("/cursors/bulldozer-up.svg") 16 16, auto !important;
   }
 
-  /* Interactive elements on hover = blade DOWN (light mode) */
   a:hover,
   button:hover,
   [role="button"]:hover,
@@ -39,14 +38,12 @@
     cursor: url("/cursors/bulldozer-down.svg") 16 16, pointer !important;
   }
 
-  /* Dark mode cursors */
   .dark html,
   .dark body,
   .dark * {
     cursor: url("/cursors/bulldozer-up-dark.svg") 16 16, auto !important;
   }
 
-  /* Interactive elements on hover = blade DOWN (dark mode) */
   .dark a:hover,
   .dark button:hover,
   .dark [role="button"]:hover,
@@ -57,6 +54,7 @@
   .dark [data-cursor="pointer"] * {
     cursor: url("/cursors/bulldozer-down-dark.svg") 16 16, pointer !important;
   }
+ */
 }
 
 /* Component styles - reusable UI elements */
