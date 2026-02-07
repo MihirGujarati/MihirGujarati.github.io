@@ -1,43 +1,43 @@
 [
   {
     "id": "project-1",
-    "title": "CON 598 Construction Estimate & Bid Proposal (San Pedro River Bridge Replacement",
+    "title": "CON 598 Construction Estimate & Bid Proposal (San Pedro River Bridge Replacement)",
     "description": "Prepared a complete $7.1M ADOT-compliant bridge bid including quantity takeoffs, subcontractor analysis, risk contingencies, bonding, and InEight-based estimate documentation.",
-    "technologies": ["Project Estimation", "Bluebeam","Risk Assessment", "Bid Processes", "Cost managent", "Resourece Allocation", "InEight"],
+    "technologies": ["Project Estimation", "Risk Assessment","Resourece Allocation"," Contingency Planning","CPM Scheduling", "Bid Processes", "Cost managent","Bluebeam","InEight"],
     "imageUrl": "/Bridge.jpg",
     "demoUrl": "https://drive.google.com/drive/folders/1OdyBZKyy4VWPRUXZFT-NIPo6N6Nt5Ywc?usp=sharing",
     "sourceUrl": "https://drive.google.com/drive/folders/1OdyBZKyy4VWPRUXZFT-NIPo6N6Nt5Ywc?usp=sharing"
   },
   {
     "id": "project-2",
-    "title": "CON 534 Retrofit Opportunities Assessment",
+    "title": "CON 534 Retrofit Opportunities Assessment:- Memorial Union Building, University of Arizona.",
     "description": "Evaluated retrofit options for a 254,000 ft² occupied facility by assessing existing systems and developing phased scopes, cost estimates, and feasibility-based recommendations.",
-    "technologies": ["Building Systems Assessment", "Retrofit Planning", "Design Development", "Cost Estimation", "Feasibility Analysis"],
+    "technologies": [ "Retrofit Planning","Building Assessment","Facilities Management", "Design Development", "Cost Estimation", "Feasibility Analysis","Quantity Scheduling", "Phasing Strategies"],
     "imageUrl": "/mu.jpg",
     "demoUrl": "https://drive.google.com/drive/folders/1sHKA7-wwAE3qmMrlupuXgivS-w3_wMCF?usp=sharing",
     "sourceUrl": "https://drive.google.com/drive/folders/1sHKA7-wwAE3qmMrlupuXgivS-w3_wMCF?usp=sharing"
   },
   {
     "id": "project-3",
-    "title": "CON 545 Construction Operation Study",
+    "title": "CON 545 Construction Operation Study:- VERVE Student Housing Project, Brinkmann Construction.",
     "description": "Analyzed field productivity on a 15-story high-rise using work sampling and MPDM to optimize site logistics, safety planning, and crew efficiency.",
-    "technologies": ["Work Sampling", "MPDM", "Field Productivity Analysis"," Contingency Planning", "CPM Scheduling", "Construction Operations", " Lean Six Sigma"],
+    "technologies": ["Work Sampling","Field Productivity Analysis","Safety Analysis","Contingency Planning","CPM Scheduling","Safety Analysis", " Lean Six Sigma", "MPDM" ],
     "imageUrl": "/verve.jpg",
     "demoUrl": "https://drive.google.com/drive/folders/1zN-mvD5aSXkCUXao1F4N4QYM6Vv-9qys?usp=sharing",
     "sourceUrl": "https://drive.google.com/drive/folders/1zN-mvD5aSXkCUXao1F4N4QYM6Vv-9qys?usp=sharing"
   },
   {
     "id": "project-4",
-    "title": "CON 598 Drone Technology for the Built Environment",
+    "title": "CON 598 Drone Technology for the Built Environment:- ASU WestSolar Fields and PHX Highschool Site Analysis",
     "description": "This project demonstrates the use of drone technology to capture aerial site data and analyze construction progress, site logistics, safety conditions, and earthwork status through time-lapse and annotated video outputs",
-    "technologies": ["Drone Technology", "Aerial Data Capture", "Site Analysis", "Time-lapse Video", "Annotated Outputs", "Drone deploy"],
+    "technologies": ["Drone Technology", "Aerial Data Capture", "Site Analysis", "Photogrammetry", "Annotated Outputs", "Drone deploy"],
     "imageUrl": "/drone.jpg",
     "demoUrl": "https://drive.google.com/drive/folders/1t-KIb3RHui8F9fBrA6G3aiwKo1zJUlx1?usp=sharing",
     "sourceUrl": "https://drive.google.com/drive/folders/1t-KIb3RHui8F9fBrA6G3aiwKo1zJUlx1?usp=sharing"
   },
   {
     "id": "project-5",
-    "title": "CON 598 AI in Construction",
+    "title": "CON 598 AI in Construction:- Built an AI-Enhanced Construction Dashboard.",
     "description": "Built an AI-enhanced dashboard that summarizes work orders, enriches records with weather data, visualizes KPIs and an interactive map, and automatically emails periodic summary reports.",
     "technologies": ["AI/ML", "Predictive Analytics", "OpenWeatherMap API", "Data Visualization", "Machine Learning","HTML / CSS"],
     "imageUrl": "/ai.jpg",
@@ -46,7 +46,7 @@
   },
   {
     "id": "project-6",
-    "title": "Autodesk Revit Modeling Project",
+    "title": "Autodesk Revit Modeling Project:- Revit Architecture and Visualization.",
     "description": "I have showcased a selection of my Revit Architecture projects demonstrating proficiency in BIM modeling, custom family creation, sheet setup, and quantity scheduling. These projects also highlight my rendering and visualization skills.",
     "technologies": ["Autodesk Revit", "Custom Families", "Sheet Setup", "Quantity Scheduling", "Enscape", "Rendering", "Visualization"],
     "imageUrl": "/rvt.jpg",
